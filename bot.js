@@ -348,7 +348,7 @@ welcomer.sendFile(canvas.toBuffer())
  }
 });
 client.on('ready', () => {
-  client.user.setGame(`-help | by ! fαнα∂ #0977 .`,'https://www.twitch.tv/TE');
+  client.user.setGame(`-help | by KSA #3201 .`,'https://www.twitch.tv/TE');
   console.log('---------------');
   console.log(' Bot Is Online')
   console.log('---------------')
