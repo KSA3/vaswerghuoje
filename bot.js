@@ -448,7 +448,7 @@ client.on("message", message => {
         color: 0x06DF00,
         description: "تم مسح الرسائل بنجاح",
         footer: {
-          text: "Masters Bot."
+          text: "KSA Bot."
         }
       }}).then(msg => {msg.delete(3000)});
                           }
@@ -735,7 +735,7 @@ if (message.content.startsWith("-ping")) {
 })
   client.on('message',async message => {
     if(message.content.startsWith("-restart")) {
-        if(message.author.id !== "449467271736328203") return message.reply('You aren\'t the bot owner.');
+        if(message.author.id !== "382238711573905419") return message.reply('You aren\'t the bot owner.');
         message.channel.send('**Restarting.**').then(msg => {
             setTimeout(() => {
                msg.edit('**Restarting..**');
@@ -749,7 +749,7 @@ if (message.content.startsWith("-ping")) {
         setTimeout(() => {
             message.channel.send('Done')
             client.destroy();
-            client.login('NDczMzI5NDYxMTYxNjIzNTUy.DkXuhA.A68ERmxtPXaDqyGWBg2naPoYNfc');
+            client.login('NDc5MDEyOTUxMzYyMTA5NDUw.DlTDtw.K2vPX2t_PyAYue759vPRf930870');
         },3000);
     }
 });
