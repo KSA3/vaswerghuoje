@@ -3218,35 +3218,6 @@ client.on("message", message => {
 
 
 
-const giphy = require('giphy-api')();
-    function getValue(key, array) {
-  for (var el in array) {
-    if (array[el].hasOwnProperty(key)) {
-      return array[el][key];
-    }
-  }
-}
-
-    client.on('message', message => {
-    if(message.content.startsWith(prefix + 'gif')) {
-        sb = message.content.substring(4)
-      giphy.random({
-        tag: sb,
-        rating: 'g',
-        fmt: 'json'
-      }, function(err, res) {
-        if (getValue("image_url", res)) {
-
-          message.channel.send({files:[{
-              attachment: getValue("image_url", res),
-              name: 'gif'+sb+'.gif'
-          }]
-        });
-        }
-
-      });
-      }
-});  
 
 
 
