@@ -290,7 +290,7 @@ client.on('guildCreate', guild => {
 client.on("message", message => {
     var prefix = -";
             var args = message.content.substring(prefix.length).split(" ");
-            if (message.content.startsWith("*clear")) {
+            if (message.content.startsWith("-clear")) {
                 if (!message.member.hasPermission("MANGE_MESSAGES"))  return;
  if (!args[1]) {
                                 let embed3 = new Discord.RichEmbed()
@@ -395,7 +395,7 @@ m.sendMessage(args)
             SEND_MESSAGES: false
 
               }).then(() => {
-                  message.reply("**__تم تقفيل الشات__ :white_check_mark: **")
+                  message.reply("**__تم تقفيل الشات__** :white_check_mark: **")
               });
                 }
 //! Solo ヅ # 8881
@@ -503,10 +503,8 @@ message.channel.sendEmbed(embed);
 
 
 client.on("message", message => {
-    var prefix = "-";
- 
             var args = message.content.substring(prefix.length).split(" ");
-            if (message.content.startsWith(prefix + "clear")) {
+            if (message.content.startsWith("-clear")) {
    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('** You Dont Have Permission **');
         var msg;
         msg = parseInt();
