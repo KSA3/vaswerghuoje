@@ -1100,7 +1100,7 @@ if (message.mentions.users.size < 1) return message.reply("**منشن الشخص
 }
 });
 client.on('message', message => {
-    var prefix = "-"
+    var prefix = "-";
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
 
