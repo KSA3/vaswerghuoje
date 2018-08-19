@@ -1132,6 +1132,7 @@ client.on("message", message => {
       .setColor("#ffff00")
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
+
 	  
 ("═════ஜ۩۞۩ஜ══════════ஜ۩۞۩ஜ═════")
 	  
@@ -1140,12 +1141,15 @@ client.on("message", message => {
 ....
 متعدد الميزات و الاوامر فيه اوامر جميله يحتوي على اجمل الاوامر مثل  مانع الاسبام و الترحيب 
 وبعد اوامر مع التحديثات القادمه
+
 سرعه اتصال ممتازه
 سهل الاستخدام
 صيانه كل يوم
 مجاني بل كامل 
 بوت عربي وسيتم اضافه اللغه الاجنبيه قريبا
+
 **
+
         ***__General orders__***
 **
 『gif / يعطيك gif』
@@ -1172,6 +1176,7 @@ client.on("message", message => {
 『pong / لمعرفه بنج خاص فيك』
 『un / قلب كلام』
 **
+
         ***__Administrative Orders__***
 **
 『kick / كيك』
@@ -1191,12 +1196,16 @@ client.on("message", message => {
 『clear/يمسح شات بعدد الي تبغى』
 『autorole/سوي رتبه باسم Member وراح ياخذ عضو جديد الرتبه』
 『roleid /لمعرفه ايدي الرتبه』
+
 **
+
         ***__Special orders __***
 **
 『لا يوجد حتى الان 』
 **
+
  
+
 ("═════ஜ۩۞۩ஜ══════════ஜ۩۞۩ஜ═════")
          
 **  
@@ -1221,6 +1230,7 @@ client.on("message", message => {
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
 **
+
         ***__Bot orders__***
 **
 『ping / يعرض لك سرعه اتصال البوت』
@@ -1231,6 +1241,7 @@ client.on("message", message => {
 『bot / معلومات عن البوت』
 『صاحب / ترسل رساله الى صاحب بوت』
 『adminbot /لمعرفه ادمن بوت』
+
 **
        ***__Games orders__***
  **       
@@ -2178,6 +2189,19 @@ if(hours3 > 12) {
   message.channel.sendMessage(Math.floor(Math.random() * 5));
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
 client.on("message", message => {
         if(message.content.startsWith(prefix + 'v10')) {
          let args = message.content.split(" ").slice(1);
@@ -2213,6 +2237,19 @@ client.on("message", message => {
 message.channel.sendEmbed(cat);
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
 client.on('message', function(message) {
  if(message.content.startsWith(prefix + 'act')) {
  let guild = message.mentions.members.first();
@@ -2231,6 +2268,26 @@ let modlog = client.channels.find('name', 'actroom')
                     message.channel.send({embed:ZmA});
 }
 }); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 client.on('message', function(message) {
     var prefix = "*"
  
@@ -2256,6 +2313,16 @@ client.on('message', function(message) {
                     message.channel.send({embed:ZmA});
     }
 });
+
+
+
+
+
+
+
+
+
+
 client.on('message', message => {
     if (message.content.startsWith(prefix + 'delete')) {
       if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(`You Don't Have [*MANAGE_MESSAGES*] Permission `).catch(console.error);
@@ -2273,14 +2340,36 @@ message.channel.fetchMessages({
 };
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 client.on("guildMemberAdd", member => {
   member.createDM().then(function (channel) {
   return channel.send(` 
 **
 Welcome To Server   مرحبا بك في السيرفر يا عمري 
+
+
+
+
+
 هل عجبك البوت???
 قم باضافه افضل بوت عربي من خلال الرابط
+
 https://discordapp.com/oauth2/authorize?client_id=425971519735463936&permissions=2097176631&scope=bot
+
+
 **`) 
 }).catch(console.error)
 })
@@ -2293,6 +2382,12 @@ client.on('message', msg => {
     msg.reply('https://discordapp.com/oauth2/authorize?client_id=399596674449801216&permissions=2097176631&scope=bot');
   }
 });
+
+
+
+
+
+
 client.on("message", message => {
  if (message.content === "*support") {
   const embed = new Discord.RichEmbed() 
@@ -2309,9 +2404,46 @@ message.author.sendEmbed(embed)
 
 }
 }); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 client.on('guildMemberAdd', (member) => {
 member.addRole(member.guild.roles.find('name', 'Member'));
 });
+
+
+
+
+
+
+
+
+
+
+
 client.on('message', message => {
   if (message.author.boss) return;
   if (!message.content.startsWith(prefix)) return;
@@ -2345,6 +2477,21 @@ if (message.mentions.users.size < 1) return message.reply("**منشن الشخص
   })
 }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 client.on('message', message => {
   var prefix = "*";
   if (message.author.bot) return;
@@ -2366,6 +2513,31 @@ client.channels.get(`ID Chat admin`).sendMessage("** تم طرد هذا الشخ
         });
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const Za7f = [
     "**صورة وجهك او رجلك او خشمك او يدك**.",
     "**اصدر اي صوت يطلبه منك الاعبين**.",
@@ -2434,6 +2606,30 @@ const Za7f = [
   console.log('[38ab] Send By: ' + message.author.username)
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 client.on("message", message => {
   if (message.author.bot) return;
   
@@ -2467,6 +2663,23 @@ return message.reply("**:white_check_mark: .. تم اعطاء العضو ميو�
 };
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    client.on("message", message => {
   if (message.author.bot) return;
   
@@ -2498,6 +2711,21 @@ return message.reply("**:white_check_mark: .. تم فك الميوت عن الش
 }
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 client.on('message', message => {
     if (message.author.id === client.user.id) return;
     if (message.guild) {
@@ -2523,6 +2751,13 @@ return;
         return;
     }
 });
+
+
+
+
+
+
+
 client.on('message', message => {
 if (message.content.startsWith(prefix + 'roleid')) {
 let args = message.content.split(" ").slice(1);
@@ -2536,12 +2771,33 @@ if (!role) {
 message.channel.send(embed);
  }
 });
+
+
+
+
+
+
 client.on('message', message => {
     if (message.author.id === client.user.id) return;
     if (message.content === '*pong') {
         message.channel.sendMessage(':ping_pong: Pong! In `' + `${client.ping}` + ' ms`');
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 client.on("message", (message) => {
 if (message.content.startsWith("*ct")) {
             if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
@@ -2551,6 +2807,8 @@ message.channel.sendMessage('تـم إنـشاء روم كـتابـي')
 
 }
 });
+
+
 client.on("message", (message) => {
 if (message.content.startsWith("*cv")) {
             if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
@@ -2560,6 +2818,8 @@ if (message.content.startsWith("*cv")) {
     
 }
 });
+
+
 client.on("message", (message) => {
     if (message.content.startsWith('*dc')) {
         if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
@@ -2570,6 +2830,12 @@ client.on("message", (message) => {
         channel.delete()
     }
 });
+
+
+
+
+
+
 client.on('message', message => {
 if(message.content == '*adminbot') {
          if(!message.author.id === '331383478719479809') return;
@@ -2600,6 +2866,11 @@ Server MemberCount : **${gmemb} **
 }) 
 }
 });
+
+
+
+
+
 client.on('message', message => {
 if(message.content == '*adminbot') {
          if(!message.author.id === '411539448530993162') return;
@@ -2630,6 +2901,18 @@ Server MemberCount : **${gmemb} **
 }) 
 }
 });
+
+
+
+
+
+
+
+
+
+
+
+
 client.on('message', message => {
     if (message.author.bot) return;
     if (message.content.indexOf('*un') === 0) {
@@ -2643,6 +2926,23 @@ client.on('message', message => {
         message.reply(reversed);
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 client.on('message', message => {
      if (message.content === "*help") {
       const embed = new Discord.RichEmbed()
@@ -2651,6 +2951,20 @@ client.on('message', message => {
   message.channel.sendEmbed(embed);
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 client.on('message', function(message) {
     if (message.channel.type === "dm") {
         if (message.author.id === client.user.id) return;
@@ -2664,6 +2978,27 @@ client.on('message', function(message) {
     client.channels.get("431572885497184257").send({embed:HeMa});
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 client.on('message', message => {
         if (message.content.startsWith(prefix + "uptime")) {
     let ms = client.uptime;
@@ -2729,6 +3064,36 @@ client.on('message', message => {
     message.channel.send(dateString);
 }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 client.on('message', message => {
 var prefix = "*";
 
@@ -2772,6 +3137,33 @@ if (message.author.id !== '331383478719479809') return message.reply('** هذا 
 }
 
  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const sql = require("sqlite");
 sql.open("./credits.sqlite");
 
@@ -2814,6 +3206,18 @@ client.on("message", message => {
     });
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
 const giphy = require('giphy-api')();
     function getValue(key, array) {
   for (var el in array) {
@@ -2843,6 +3247,15 @@ const giphy = require('giphy-api')();
       });
       }
 });  
+
+
+
+
+
+
+
+
+
 client.on('message', message => {
 if (message.content.startsWith(prefix + "role")) {
                 if (!message.channel.guild) return message.reply('** This command only for servers **');    
@@ -2856,4 +3269,46 @@ if (message.content.startsWith(prefix + "role")) {
             message.channel.sendEmbed(embed);
         }
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 client.login(process.env.BOT_TOKEN);
