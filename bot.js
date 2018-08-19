@@ -733,26 +733,6 @@ if (message.content.startsWith("-ping")) {
        
     }
 })
-  client.on('message',async message => {
-    if(message.content.startsWith("-restart")) {
-        if(message.author.id !== "382238711573905419") return message.reply('You aren\'t the bot owner.');
-        message.channel.send('**Restarting.**').then(msg => {
-            setTimeout(() => {
-               msg.edit('**Restarting..**');
-            },1000);
-            setTimeout(() => {
-               msg.edit('**Restarting...**');
-            },2000);
-        });
-        console.log(`${message.author.tag} [ ${message.author.id} ] has restarted the bot.`);
-        console.log(`Restarting..`);
-        setTimeout(() => {
-            message.channel.send('Done')
-            client.destroy();
-            client.login('NDc5MDEyOTUxMzYyMTA5NDUw.DlTDtw.K2vPX2t_PyAYue759vPRf930870');
-        },3000);
-    }
-});
 client.on ("guildMemberAdd", member => {
   
    var role = member.guild.roles.find ("name", "Member");
