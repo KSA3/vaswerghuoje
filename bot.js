@@ -373,7 +373,7 @@ if (message.content === '-help') {
                 .addField("**LINK**" ,"**الاستخدام:** ``-link أرسال رابط السيرفر ``")
 	        .addField("**SUPPORT**" ,"**الاستخدام:** ``-support رابط سيرفر السبورت ``")
                 .addField("**ID**" ,"**الاستخدام:** ``-id معلومات عن حسابك ``")
-	        .addField("**DT**" ,"**الاستخدام:** ``-dt يظهر لك الوقت في مكه و الامارات و مصر ``")
+	        .addField("**DT**" ,"**الاستخدام:** ``-dt يظهر لك الوقت في مكه المكرمه و الامارات و مصر ``")
 	        .addField("**MUSIC**" ,"**الاستخدام:** ``-music اوامر لتشغيل الاغاني ``")
                 .addField("**ADMIN**" ,"**الاستخدام:** ``-admin الاوامر الادارية ``")
 	        .addField("**GAMES**" ,"**الاستخدام:** ``-games اوامر الالعاب ``")
@@ -499,19 +499,24 @@ client.on("message", message => {
   }
 });
 client.on('message', message => {
-   if (message.content === "-id") {
-   let embed = new Discord.RichEmbed()
-  .setColor("RANDOM")
-  .setThumbnail(message.author.avatarURL)
-  .addField("Name:",`${message.author.username}`, true)
-  .addField('Discrim:',"#" +  message.author.discriminator, true)
-  .addField("ID:", message.author.id, true)
-  .addField("Create At:", message.author.createdAt, true)
-     
-     
-  message.channel.sendEmbed(embed);
-    }
-});
+    if (message.content === "-id") {
+    var year = message.createdAt.getFullYear()
+    var month = message.createdAt.getMonth()
+    var day = message.createdAt.getDate()
+         let embed = new Discord.RichEmbed()
+         .setAuthor(message.author.username, message.author.avatarURL)
+      .setThumbnail(message.author.avatarURL)
+        .addField("**اسمك:**",  '**[ ' + `${message.author.username}` + ' ]**')
+          .setThumbnail(message.author.avatarURL)
+                   .setFooter(`${message.author.username}`, 'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')
+      .addField('الكود الخاص بك:', message.author.discriminator)
+      .addField("**عدد الايام منذ افتتاح حسابك:**", message.author.createdAt.getDate())
+        .addField("** تم افتتاح حسابك عام:**", message.createdAt.getFullYear())
+            .addField("** عدد الشهور منذ افتتاح حسابك:**", message.createdAt.getMonth())
+    
+      message.channel.send({embed});
+        }
+    });
 client.on("message", message => {
   if (message.author.bot) return;
  
@@ -1109,5 +1114,575 @@ client.on("message", (message) => {
         if (!channel) return message.reply('**لا يوجد روم بهذا الاسم**').catch(console.error);
         channel.delete()
     }
+});
+client.on('message', message => {
+if (message.content.startsWith('-XD')) {
+    let pages = [`
+༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
+:earth_africa: The Public Commands :earth_africa: 
+1༺༻  $id  | Shows User ID༺༻
+2༺༻  $info | Shows User Info༺༻
+3༺༻  $server | Shows Server Info༺༻
+4༺༻  $ping | Shows Bot Ping༺༻
+5༺༻  $uptime | Shows Bot Time༺༻
+6༺༻ $invite | Shows Bot Invite Link༺༻
+7༺༻  $patato | Shows Bot Info༺༻
+8༺༻  $avatar | Shows User Avatar༺༻
+9༺༻ $savatar | Shows Server Avatar༺༻
+10༺༻  $mcskin  | Shows Minecraft Players Skin༺༻
+11༺༻  $say  | Repeat What Your Saying༺༻
+12༺༻  $makerole  | Make Server Roles༺༻
+13༺༻  $makeroom  | Make Server Roles༺༻
+14༺༻  $gif  | Gives You Gif ༺༻
+15༺༻  $moveall  | Move All Members To Your Channel༺༻
+16༺༻  $nick  | Nick Members༺༻
+17༺༻  $hack  | Hack Game༺༻
+18༺༻  $type  | Shows Bot is Typeing༺༻
+19༺༻  $stype  | Stops The Bot From Typeing༺༻
+20༺༻  $tag  | Give You Custom Words༺༻
+21༺༻  $redo  | Redoing Whats You Saying༺༻
+22༺༻  $2mv  | Makeing Channel For 2m༺༻
+23༺༻  $em  | Makeing Your Words In Embed༺༻
+24༺༻  $credits  | Shows Your Credits༺༻
+25༺༻  $daily  | You Can Get 250 Credits Everyday༺༻
+26༺༻  $rep  | Gives to the user REP༺༻
+27༺༻  $profile  | Shows User Profile༺༻
+28༺༻  $title  | Shows User title༺༻
+༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
+Click On ▶ To Go Administor Side
+   `
+,`
+༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
+:closed_lock_with_key: Administor Coomands:closed_lock_with_key: 
+1༺༻  $clear | Clear The Chat༺༻
+2༺༻  $bc | Msg Everyone In The Server༺༻
+3༺༻  $kick | Kick With Reson༺༻
+4༺༻  $ban | Ban With Reason༺༻
+5༺༻ Make Room Called log For Logs༺༻
+5༺༻ Make Room Called report For reports༺༻
+༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
+Click On ▶ To Go To Bot Info
+   `,`
+༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
+1༺༻  There is Commands Just For NotGucci | Bot By:NotGucci༺༻
+༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
+   `]
+    let page = 1;
+
+    let embed = new Discord.RichEmbed()
+    .setColor('RANDOM')
+    .setFooter(`Page ${page} of ${pages.length}`)
+    .setDescription(pages[page-1])
+
+    message.author.sendEmbed(embed).then(msg => {
+
+        msg.react('◀').then( r => {
+            msg.react('▶')
+
+
+        const backwardsFilter = (reaction, user) => reaction.emoji.name === '◀' && user.id === message.author.id;
+        const forwardsFilter = (reaction, user) => reaction.emoji.name === '▶' && user.id === message.author.id;
+
+
+        const backwards = msg.createReactionCollector(backwardsFilter, { time: 2000000});
+        const forwards = msg.createReactionCollector(forwardsFilter, { time: 2000000});
+
+
+
+        backwards.on('collect', r => {
+            if (page === 1) return;
+            page--;
+            embed.setDescription(pages[page-1]);
+            embed.setFooter(`Page ${page} of ${pages.length}`);
+            msg.edit(embed)
+        })
+        forwards.on('collect', r => {
+            if (page === pages.length) return;
+            page++;
+            embed.setDescription(pages[page-1]);
+            embed.setFooter(`Page ${page} of ${pages.length}`);
+            msg.edit(embed)
+        })
+        })
+    })
+    }
+}); 
+
+
+client.on('message', message => {
+if (message.content.startsWith('-XD')) { /// And This is The Channel One Send The Help In Channel // Code By NotGucci
+    let pages = [`
+༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
+:earth_africa: The Public Commands :earth_africa: 
+1༺༻  $id  | Shows User ID༺༻
+2༺༻  $info | Shows User Info༺༻
+3༺༻  $server | Shows Server Info༺༻
+4༺༻  $ping | Shows Bot Ping༺༻
+5༺༻  $uptime | Shows Bot Time༺༻
+6༺༻ $invite | Shows Bot Invite Link༺༻
+7༺༻  $patato | Shows Bot Info༺༻
+8༺༻  $avatar | Shows User Avatar༺༻
+9༺༻ $savatar | Shows Server Avatar༺༻
+10༺༻  $mcskin  | Shows Minecraft Players Skin༺༻
+11༺༻  $say  | Repeat What Your Saying༺༻
+12༺༻  $makerole  | Make Server Roles༺༻
+13༺༻  $makeroom  | Make Server Roles༺༻
+14༺༻  $gif  | Gives You Gif ༺༻
+15༺༻  $moveall  | Move All Members To Your Channel༺༻
+16༺༻  $nick  | Nick Members༺༻
+17༺༻  $hack  | Hack Game༺༻
+18༺༻  $type  | Shows Bot is Typeing༺༻
+19༺༻  $stype  | Stops The Bot From Typeing༺༻
+20༺༻  $tag  | Give You Custom Words༺༻
+21༺༻  $redo  | Redoing Whats You Saying༺༻
+22༺༻  $2mv  | Makeing Channel For 2m༺༻
+23༺༻  $em  | Makeing Your Words In Embed༺༻
+24༺༻  $credits  | Shows Your Credits༺༻
+25༺༻  $daily  | You Can Get 250 Credits Everyday༺༻
+26༺༻  $rep  | Gives to the user REP༺༻
+27༺༻  $profile  | Shows User Profile༺༻
+28༺༻  $title  | Shows User title༺༻
+༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
+Click On ▶ To Go Administor Side
+   `
+,`
+༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
+:closed_lock_with_key: Administor Coomands:closed_lock_with_key: 
+1༺༻  $clear | Clear The Chat༺༻
+2༺༻  $bc | Msg Everyone In The Server༺༻
+3༺༻  $kick | Kick With Reson༺༻
+4༺༻  $ban | Ban With Reason༺༻
+5༺༻ Make Room Called log For Logs༺༻
+5༺༻ Make Room Called report For reports༺༻
+༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
+Click On ▶ To Go To Bot Info
+   `,`
+༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
+1༺༻  There is Commands Just For NotGucci | Bot By:NotGucci༺༻
+༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
+   `]
+ let page = 1;
+
+    let embed = new Discord.RichEmbed()
+    .setColor('RANDOM')
+    .setFooter(`Page ${page} of ${pages.length}`)
+    .setDescription(pages[page-1])
+
+    message.channel.sendEmbed(embed).then(msg => {
+
+        msg.react('◀').then( r => {
+            msg.react('▶')
+
+           setTimeout(() => {
+        msg.delete
+    }, 60 * 1000)
+
+        const backwardsFilter = (reaction, user) => reaction.emoji.name === '◀' && user.id === message.author.id;
+        const forwardsFilter = (reaction, user) => reaction.emoji.name === '▶' && user.id === message.author.id;
+
+
+        const backwards = msg.createReactionCollector(backwardsFilter, { time: 2000000});
+        const forwards = msg.createReactionCollector(forwardsFilter, { time: 2000000});
+
+
+
+        backwards.on('collect', r => {
+            if (page === 1) return;
+            page--;
+            embed.setDescription(pages[page-1]);
+            embed.setFooter(`Page ${page} of ${pages.length}`);
+            msg.edit(embed)
+        })
+        forwards.on('collect', r => {
+            if (page === pages.length) return;
+            page++;
+            embed.setDescription(pages[page-1]);
+            embed.setFooter(`Page ${page} of ${pages.length}`);
+            msg.edit(embed)
+        })
+        })
+    })
+    }
+});
+client.on('message', message => {
+	if(message.content.startsWith('-quran')) {
+		message.delete();
+    const voiceChannel = message.member.voiceChannel;
+    if (!voiceChannel) return message.reply(`**يحب ان تكون في روم صوتي**`);
+
+	let embed = new Discord.RichEmbed()
+    .setAuthor(`${message.author.tag}`, message.author.avatarURL)
+	.setColor('#000000')
+	.setFooter("بوت القرآن | صدقة جارية للجميع", 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiqVT5PZAfcy8qZxlr3SQv3mmCw9zPiu2YBLIQ4bBePL2jLm7h')
+      .setDescription(` 
+     🕋 اوامر بوت القرآن الكريم 🕋
+	 
+🇦 القرآن كاملاً ماهر المعيقلي
+🇧 سورة البقرة كاملة للشيخ مشاري العفاسي
+🇨 سورة الكهف كاملة بصوت مشارى بن راشد العفاسي
+⏹ لإيقاف القرآن الكريم
+🇩 القرآن كاملاً عبدالباسط عبدالصمد
+🇪 القرآن كاملاً ياسر الدوسري
+🇫 سورة الواقعه بصوت الشيخ مشاري بن راشد العفاسي`)
+	
+	message.channel.sendEmbed(embed).then(msg => {
+			msg.react('🇦')
+		.then(() => msg.react('🇧'))
+		.then(() => msg.react('🇨'))
+		.then(() => msg.react('⏹'))
+		.then(() => msg.react('🇩'))
+		.then(() => msg.react('🇪'))
+		.then(() => msg.react('🇫'))
+
+// Filters		
+	let filter1 = (reaction, user) => reaction.emoji.name === '🇦' && user.id === message.author.id;
+	let filter2 = (reaction, user) => reaction.emoji.name === '🇧' && user.id === message.author.id;
+	let filter3 = (reaction, user) => reaction.emoji.name === '🇨' && user.id === message.author.id;
+	let filter4 = (reaction, user) => reaction.emoji.name === '⏹' && user.id === message.author.id;
+	let filter5 = (reaction, user) => reaction.emoji.name === '🇩' && user.id === message.author.id;
+	let filter6 = (reaction, user) => reaction.emoji.name === '🇪' && user.id === message.author.id;
+	let filter7 = (reaction, user) => reaction.emoji.name === '🇫' && user.id === message.author.id;
+
+// Collectors
+	let collector1 = msg.createReactionCollector(filter1, { time: 120000 });
+	let collector2 = msg.createReactionCollector(filter2, { time: 120000 });
+	let collector3 = msg.createReactionCollector(filter3, { time: 120000 });
+	let collector4 = msg.createReactionCollector(filter4, { time: 120000 });
+	let collector5 = msg.createReactionCollector(filter5, { time: 120000 });
+	let collector6 = msg.createReactionCollector(filter6, { time: 120000 });
+	let collector7 = msg.createReactionCollector(filter7, { time: 120000 });
+	
+// Events
+collector1.on('collect', r => {
+    voiceChannel.join()
+      .then(connnection => {
+        const stream = ytdl("https://www.youtube.com/watch?v=Ktync4j_nmA", { filter: 'audioonly' });
+        const dispatcher = connnection.playStream(stream);
+        dispatcher.on('end', () => voiceChannel.leave());
+		collector1.stop();
+		collector2.stop();
+		collector3.stop();
+		collector4.stop();
+		collector5.stop();
+		collector6.stop();
+		collector7.stop();
+		embed.setDescription(`<@${message.author.id}> **تم تشغيل القرآن الكريم**`);
+		msg.edit(embed).then(msg.delete(5000));
+   });
+});
+collector2.on('collect', r => {
+    voiceChannel.join()
+      .then(connnection => {
+        const stream = ytdl("https://www.youtube.com/watch?v=qFq5h4wtjaM&t=30s", { filter: 'audioonly' });
+        const dispatcher = connnection.playStream(stream);
+        dispatcher.on('end', () => voiceChannel.leave());
+		collector1.stop();
+		collector2.stop();
+		collector3.stop();
+		collector4.stop();
+		collector5.stop();
+		collector6.stop();
+		collector7.stop();
+		embed.setDescription(`<@${message.author.id}> **تم تشغيل القرآن الكريم**`);
+		msg.edit(embed).then(msg.delete(5000));
+      });
+});
+collector3.on('collect', r => {
+    voiceChannel.join()
+      .then(connnection => {
+        const stream = ytdl("https://www.youtube.com/watch?v=8UWKiKGQmsE", { filter: 'audioonly' });
+        const dispatcher = connnection.playStream(stream);
+        dispatcher.on('end', () => voiceChannel.leave());
+		collector1.stop();
+		collector2.stop();
+		collector3.stop();
+		collector4.stop();
+		collector5.stop();
+		collector6.stop();
+		collector7.stop();
+		embed.setDescription(`<@${message.author.id}> **تم تشغيل القرآن الكريم**`);
+		msg.edit(embed).then(msg.delete(5000));
+      });
+});
+collector4.on('collect', r => {
+	if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
+		collector1.stop();
+		collector2.stop();
+		collector3.stop();
+		collector4.stop();
+		collector5.stop();
+		collector6.stop();
+		collector7.stop();
+		embed.setDescription(`<@${message.author.id}> **تم إيقاف القرآن الكريم**`);
+		msg.edit(embed).then(msg.delete(5000));
+});
+collector5.on('collect', r => {
+    voiceChannel.join()
+      .then(connnection => {
+        const stream = ytdl("https://www.youtube.com/watch?v=vqXLGtZcUm8", { filter: 'audioonly' });
+        const dispatcher = connnection.playStream(stream);
+        dispatcher.on('end', () => voiceChannel.leave());
+		collector1.stop();
+		collector2.stop();
+		collector3.stop();
+		collector4.stop();
+		collector5.stop();
+		collector6.stop();
+		collector7.stop();
+		embed.setDescription(`<@${message.author.id}> **تم تشغيل القرآن الكريم**`);
+		msg.edit(embed).then(msg.delete(5000));
+      });
+});
+collector6.on('collect', r => {
+    voiceChannel.join()
+      .then(connnection => {
+        const stream = ytdl("https://www.youtube.com/watch?v=WYT0pQne-7w", { filter: 'audioonly' });
+        const dispatcher = connnection.playStream(stream);
+        dispatcher.on('end', () => voiceChannel.leave());
+		collector1.stop();
+		collector2.stop();
+		collector3.stop();
+		collector4.stop();
+		collector5.stop();
+		collector6.stop();
+		collector7.stop();
+		embed.setDescription(`<@${message.author.id}> **تم تشغيل القرآن الكريم**`);
+		msg.edit(embed).then(msg.delete(5000));
+      });
+});
+collector7.on('collect', r => {
+    voiceChannel.join()
+      .then(connnection => {
+        const stream = ytdl("https://www.youtube.com/watch?v=LTRcg-gR78o", { filter: 'audioonly' });
+        const dispatcher = connnection.playStream(stream);
+        dispatcher.on('end', () => voiceChannel.leave());
+		collector1.stop();
+		collector2.stop();
+		collector3.stop();
+		collector4.stop();
+		collector5.stop();
+		collector6.stop();
+		collector7.stop();
+		embed.setDescription(`<@${message.author.id}> **تم تشغيل القرآن الكريم**`);
+		msg.edit(embed).then(msg.delete(5000));
+      });
+});
+})
+}
+});
+client.on('ready', () => {
+console.log('Logging into discord..');
+console.log(`
+By Majd
+`);
+
+});
+
+//جميع الحقوق محفوظه لي ماجد يعني لاتسوي مبرمج. 
+
+
+
+
+
+function commandIs(str, msg){
+    return msg.content.toLowerCase().startsWith('.' + str);
+}
+
+function pluck(array) {
+    return array.map(function(item) { return item['name']; });
+}
+
+function hasRole(mem, role) {
+    if(pluck(mem.roles).includes(role)){
+        return true;
+    } else {
+        return false;
+    }
+
+  }
+
+
+
+
+
+var servers = {};
+
+
+
+
+
+
+var q1 = ".quran 1"
+
+var q2 = ".quran 2"
+
+var q3 = ".quran 3"
+
+var q4 = ".quran 4"
+
+
+
+
+
+function play(connection, message) {
+	var server = servers[message.guild.id];
+
+	server.dispatcher = connection.playStream(yt(server.queue[0], { fliter: "audionly" }));
+
+	server.queue.shift();
+
+	server.dispatcher.on("end", function() {
+		if (server.queue[0]) play(connection, message);
+		else connection.disconnect();
+	});
+}
+
+client.on("ready", () => {
+	console.log(`Quran bot is in ${client.guilds.size} servers `)
+});
+
+var PREFIX = ".";
+
+
+
+//sowar
+
+
+client.on("message", message => {
+
+	                    if (message.content === q1 ) {
+                  message.react('🔊')
+    const voiceChannel = message.member.voiceChannel;
+    if (!voiceChannel) {
+      return message.reply(`يرجى أن تكون في قناة صوتيه أولا!`);
+    }
+    voiceChannel.join()
+      .then(connnection => {
+        let stream = yt('https://www.youtube.com/watch?v=V4b9f9BQTKI', {audioonly: true});
+        const dispatcher = connnection.playStream(stream);
+      });
+  }
+  
+  	                    if (message.content === q2 ) {
+                  message.react('🔊')
+    const voiceChannel = message.member.voiceChannel;
+    if (!voiceChannel) {
+      return message.reply(`يرجى أن تكون في قناة صوتيه أولا!`);
+    }
+    voiceChannel.join()
+      .then(connnection => {
+        let stream = yt('https://youtu.be/0m02xNtR8gA', {audioonly: true});
+        const dispatcher = connnection.playStream(stream);
+      });
+  }
+  
+    	                    if (message.content === q3 ) {
+                  message.react('🔊')
+    const voiceChannel = message.member.voiceChannel;
+    if (!voiceChannel) {
+      return message.reply(`يرجى أن تكون في قناة صوتيه أولا!`);
+    }
+    voiceChannel.join()
+      .then(connnection => {
+        let stream = yt('https://www.youtube.com/watch?v=4JvY-MccxNk', {audioonly: true});
+        const dispatcher = connnection.playStream(stream);
+      });
+  }
+  
+      	                    if (message.content === q4 ) {
+                  message.react('🔊')
+    const voiceChannel = message.member.voiceChannel;
+    if (!voiceChannel) {
+      return message.reply(`يرجى أن تكون في قناة صوتيه أولا!`);
+    }
+    voiceChannel.join()
+      .then(connnection => {
+        let stream = yt('https://www.youtube.com/watch?v=Ktync4j_nmA', {audioonly: true});
+        const dispatcher = connnection.playStream(stream);
+        });
+  }
+ 
+    
+    
+    //outher_cummon  
+    
+  
+  if(message.content === ".stop" ) {
+      			var servers = {};
+
+			if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
+	
+  }
+
+  if(message.content === ".help") {
+    message.channel.send(` QuranBot
+:mosque: .quran 1  :   القران الكريم كامل بصوت الشيخ عبدالباسط عبدالصمد 
+
+:mosque: .quran 2  :   سورة البقرة كاملة - القارئ الحاج ميثم التمار (QURAN)
+
+:mosque: .quran 3  :   القرآن الكريم كامل بصوت الشيخ عبد الرحمن السديس وسعود الشريم 
+
+:mosque: .quran 4  :   القرآن الكريم كامل بصوت الشيخ المعيقلي
+
+:mosque: .stop     : لـ أيقاف تشغيل البوت `)
+}
+ 
+	    
+});
+client.on('message', function(message) {
+    if (message.channel.type === "dm") {
+        if (message.author.id === client.user.id) return;
+        var iiMo = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setTimestamp()
+        .setTitle('``I have received a new DM !``')
+        .setThumbnail(`${message.author.avatarURL}`)
+        .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
+        .setFooter(`From **${message.author.tag} (${message.author.id})**`)
+    client.channels.get("480954783348293643").send({embed:iiMo});
+    }
+});
+client.on('message', message => {
+    if(message.content == '-Bot-All-Server') {
+             if(!message.author.id === '382293804671172620') return;
+    var gimg;
+    var gname;
+    var gmemb;
+    var gbots;
+    var groles;
+    var servers = client.guilds;
+    servers.forEach((g)=>{
+    gname = g.name;
+    gimg = g.iconURL;
+    gmemb = g.members.size;
+    gbots = g.members.filter(m=>m.bot).size;
+    groles = g.roles.map(r=> {return r.name});
+    let serv = new Discord.RichEmbed()
+    .setAuthor(gname,gimg)
+    .setThumbnail(gimg)
+    .addField('Server bots',gbots)
+    .addField('Server Member Count',gmemb = g.members.size)
+    .setColor('RANDOM')
+    message.channel.send(`
+    Server Name : **${gname}**
+    Server MemberCount : **${gmemb} **
+            
+            `);
+          message.channel.sendEmbed(serv);
+    }) 
+    }
+    });
+var antispam = require("anti-spam");//npm i anti-spam
+ 
+antispam(client, {
+  warnBuffer: 3, //الحد الأقصى المسموح به من الرسائل لإرسالها في الفاصل الزمني قبل الحصول على تحذير.
+  maxBuffer: 5, // الحد الأقصى المسموح به من الرسائل لإرسالها في الفاصل الزمني قبل الحصول على ميوت.
+  interval: 1000, // مقدار الوقت قبل حصول باند
+  warningMessage: "stop spamming.", // رسالة تحذير اذا سوا سبام!
+  roleMessage: "Muted!!", // الرسالة الي تجي اذا شخص اخذ ميوت
+  roleName: "Muted", // اسم رتبة الميوت
+  maxDuplicatesWarning: 7, // عدد الرسايل الي قبل التحذيرات
+  maxDuplicatesBan: 10, // عدد الرسايل الي يقدر المستخدم يرسلها قبل الميوت
+  time: 10, // عدد الوقت الي يجلس لين تسحب رتبة الميوت من الشخص الحسبة برمجية وليست كتابية 
 });
 client.login(process.env.BOT_TOKEN);
