@@ -406,6 +406,7 @@ if (message.content === '-admin') {
                 .addField("**KICK**" ,"**الاستخدام:** ``-kick لطرد الأعضاء ``")
                 .addField("**SCHANNEL**" ,"**الاستخدام:** ``-mutec ل فك قفل الشات ``")
                 .addField("**SCHANNEL**" ,"**الاستخدام:** ``-unmutec ل فك قفل الشات ``")
+	        .addField("**BOT**" ,"**الاستخدام:** ``-bot عدد السيرفرات الي فيها بوتك ``")
                 .addField("**MUTE**" ,"**الاستخدام:** ``-mute لعطاء الشخص ميوت ``")
                 .addField("**UNMUTE**" ,"**الاستخدام:** ``-unmute لفك الميوت عن الشخص ``")
                 .addField("**RESTART**" ,"**الاستخدام:** ``-restart ريستارت للبوت بالامر ``")
