@@ -416,25 +416,6 @@ if(hours3 > 12) {
                  message.channel.sendEmbed(Date15);
         }
     });
-client.on("guildMemberAdd", member => {
-  member.createDM().then(function (channel) {
-  return channel.send(` 
-**
-Welcome To Server   مرحبا بك في السيرفر يا عمري 
-
-
-
-
-
-هل عجبك البوت???
-قم باضافه افضل بوت عربي من خلال الرابط
-
-https://discordapp.com/oauth2/authorize?client_id=425971519735463936&permissions=2097176631&scope=bot
-
-
-**`) 
-}).catch(console.error)
-})
 client.on('message', message => {
     if (message.content.startsWith("-invite")) {
 
