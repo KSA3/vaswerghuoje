@@ -800,33 +800,4 @@ client.on('message', message => {
       .addField('عدد اعضاء السيرفر',`${message.guild.memberCount}`)
       message.channel.send(SaifDz);
     });
-client.on('message', message => {
-     if (message.content === "-bot") {
-	   if(!message.member.hasPermission("ADMINISTRATOR"))
- return message.channel.send('**You Dont Have Permission **' );
-              var embed  = new Discord.RichEmbed()
-            if(!message.channel.guild) return message.reply('** This command only for servers **');
-     let embed = new Discord.RichEmbed()
-  .setColor('RANDOM')
-  .addField("**اسم السيرفر**", message.guild.name)
-  .addField("**عدد السيرفرات الي فيها البوت:**" , client.guilds.size)
-  .addField("**المستخدمين:**", client.users.size)
-  .addField("**قنوات:**", client.channels.size)
-message.channel.sendEmbed(embed);
-    }
-});
-client.on('message', message => {
-            if(!message.channel.guild) return;
-let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('-bc')){
-  if(!message.member.hasPermission("ADMINISTRATOR"))
- return message.channel.send('**You Dont Have Permission **' );
-              var embed  = new Discord.RichEmbed()
- if(!message.author.id === '331383478719479809') return;
-message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
-client.users.forEach(m =>{
-m.sendMessage(args)
-})
-}
-});
 client.login(process.env.BOT_TOKEN);
