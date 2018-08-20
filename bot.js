@@ -883,7 +883,7 @@ client.on('message', message => {
             SEND_MESSAGES: false
 
               }).then(() => {
-                  message.reply("** تم قفل الشات **:white_check_mark: **")
+                  message.reply("** تم قفل الشات :white_check_mark: **")
               });
                 }
 //ARAB BOT
@@ -895,7 +895,7 @@ client.on('message', message => {
             SEND_MESSAGES: true
 
               }).then(() => {
-                  message.reply("**تم فتح الشات**:white_check_mark:**")
+                  message.reply("**تم فتح الشات:white_check_mark:**")
               });
                 }
                 
