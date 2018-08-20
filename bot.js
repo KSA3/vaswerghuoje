@@ -7,7 +7,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : RAMI' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(` ON ${client.guilds.size} Servers  *help`,"http://twitch.tv/S-F")
+client.user.setGame(` ON ${client.guilds.size} Servers  -help`,"http://twitch.tv/S-F")
 client.user.setStatus("dnd")
 });
 
@@ -355,14 +355,6 @@ client.on('message', message => {
  message.channel.sendEmbed(embed);
      }
  });
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('discord.gg')){
-        if(!message.channel.guild) return;
-        message.delete()
-    return message.reply(`** No Invite Links ممنوع النشر يقلبي **`)
-    }
-});
 client.on('message', message => {
          if (message.content === "-dt") {
          if (!message.channel.guild) return message.reply('** This command only for servers **');  
