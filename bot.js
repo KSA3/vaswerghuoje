@@ -483,37 +483,27 @@ client.on("message", message => {
         color: 0x06DF00,
         description: "تم مسح الرسائل بنجاح",
         footer: {
-          text: "Masters Bot."
+          text: "Name Bot."
         }
       }}).then(msg => {msg.delete(3000)});
                           }
 
      
 });
-client.on('message', message => {
-var prefix = "-";
-      if(message.content === prefix + "hchannel") {
-      if(!message.channel.guild) return;
-      if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('You Dont Have Permission');
-             message.channel.overwritePermissions(message.guild.id, {
-             READ_MESSAGES: false
- })
-              message.channel.send(' Done ')
- }
-});
-client.on('message', message => {
-var prefix = "-";
-      if(message.content === prefix + "schannel") {
-      if(!message.channel.guild) return;
-      if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply(' You Dont Have Permission ');
-             message.channel.overwritePermissions(message.guild.id, {
-             READ_MESSAGES: true
- })
-              message.channel.send(' Done ')
- }
-});
     client.on('message', msg => {
   if (msg.content === '-help') {
+    msg.reply(':envelope: | تم ارسال الرساله في الخاص');
+  }
+});
+    client.on('message', msg => {
+  if (msg.content === '-games') {
+    msg.reply(':envelope: | تم ارسال الرساله في الخاص');
+  }
+});
+    client.on('message', msg => {
+  if (msg.content === '-admin') {
+	    if(!message.member.hasPermission("ADMINISTRATOR"))
+ return message.channel.send('**You Dont Have Permission **' );
     msg.reply(':envelope: | تم ارسال الرساله في الخاص');
   }
 });
