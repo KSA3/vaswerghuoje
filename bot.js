@@ -3311,4 +3311,4 @@ if (message.content.startsWith(prefix + "role")) {
 
 
 
-client.login('Mzk5NTk2Njc0NDQ5ODAxMjE2.DZ7Z_w.sRUGQSm77FNgsEr0D-Vtgf0zq1U');
+client.login(process.env.BOT_TOKEN);
