@@ -371,7 +371,9 @@ if (message.content === '-help') {
                 .addField("**👫الاوامر العامة👫**","** **")
                 .addField("**AVATAR**" ,"**الاستخدام:** ``-avatar صورة حسابك ``")
                 .addField("**LINK**" ,"**الاستخدام:** ``-link أرسال رابط السيرفر ``")
+	        .addField("**SUPPORT**" ,"**الاستخدام:** ``-support رابط سيرفر السبورت ``")
                 .addField("**ID**" ,"**الاستخدام:** ``-id معلومات عن حسابك ``")
+	        .addField("**DT**" ,"**الاستخدام:** ``-dt يظهر لك الوقت في مكه و الامارات و مصر ``")
 	        .addField("**MUSIC**" ,"**الاستخدام:** ``-music اوامر لتشغيل الاغاني ``")
                 .addField("**ADMIN**" ,"**الاستخدام:** ``-admin الاوامر الادارية ``")
 	        .addField("**GAMES**" ,"**الاستخدام:** ``-games اوامر الالعاب ``")
@@ -409,7 +411,9 @@ if (message.content === '-admin') {
 	        .addField("**BOT**" ,"**الاستخدام:** ``-bot عدد السيرفرات الي فيها بوتك ``")
                 .addField("**MUTE**" ,"**الاستخدام:** ``-mute لعطاء الشخص ميوت ``")
                 .addField("**UNMUTE**" ,"**الاستخدام:** ``-unmute لفك الميوت عن الشخص ``")
-                .addField("**RESTART**" ,"**الاستخدام:** ``-restart ريستارت للبوت بالامر ``")
+                .addField("**CV**" ,"**الاستخدام:** ``-cv انشاء روم صوتي ``")
+                .addField("**CT**" ,"**الاستخدام:** ``-ct انشاء روم كتابي ``")
+                .addField("**DC**" ,"**الاستخدام:** ``-ct لمسح روم صوتي او كتابي  ``")
                 .addField("**CLEAR**" ,"**الاستخدام:** ``-clear مسح بعدد ``")
 		.addField("**BC**" ,"**الاستخدام:** ``-bc ارسال رسالة لجميع الي في السيرفر ``")
 		.addField("**BOT**" ,"**الاستخدام:** ``-bot لمعرفة عدد السيرفرات الي فيها بوتك ``")
@@ -438,12 +442,6 @@ if (message.content === '-games') {
                 .addField("**لعبه لو خيروك**" ,"**الاستخدام:** ``-لو خيروك  ``")
                 .addField("** لعبه كت تويت **" ,"**الاستخدام:** ``-كت تويت  ``")
 	        .addField("**لعبه صراحه**" ,"**الاستخدام:** ``-صراحه ``")
-                .addField("**ADMIN**" ,"**الاستخدام:** ``-admin الاوامر الادارية ``")
-	        .addField("**GAMES**" ,"**الاستخدام:** ``-games اوامر الالعاب ``")
-                .addField("**PLAYER**" ,"**الاستخدام:** ``-player لمعرفة عدد اعضاء السيرفر ``")
-                .addField("**SERVER**" ,"**الاستخدام:** ``-server معلومات عن السيرفر ``")
-                .addField("**INVITE**" ,"**الاستخدام:** ``-invite  لمعرفة انت كم جايب عضو ل السيرفر``")
-                .addField("**PING**" ,"**الاستخدام:** ``-ping  سرعة اتصال البوت ``")
                 .setColor('RANDOM')
 .setColor('RANDOM')
   message.author.sendEmbed(embed);
@@ -1068,4 +1066,48 @@ if(hours3 > 12) {
                  message.channel.sendEmbed(Date15);
         }
     });
+client.on("message", message => {
+ if (message.content === "-support") {
+  const embed = new Discord.RichEmbed() 
+      .setColor("#ffff00")
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
+	  اهلا بك عزيز مستخدم يسرنا تواجدك معا في سيرفر سبروت
+	  
+	  رابط:(https://discord.gg/AcZGuyU)
+	  `)
+
+
+message.author.sendEmbed(embed)
+
+}
+});
+client.on("message", (message) => {
+if (message.content.startsWith("-ct")) {
+            if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
+        let args = message.content.split(" ").slice(1);
+    message.guild.createChannel(args.join(' '), 'text');
+message.channel.sendMessage('تـم إنـشاء روم كـتابـي')
+
+}
+});
+client.on("message", (message) => {
+if (message.content.startsWith("-cv")) {
+            if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
+        let args = message.content.split(" ").slice(1);
+    message.guild.createChannel(args.join(' '), 'voice');
+    message.channel.sendMessage('تـم إنـشاء روم صـوتي')
+    
+}
+});
+client.on("message", (message) => {
+    if (message.content.startsWith('-dc')) {
+        if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
+
+        let args = message.content.split(' ').slice(1);
+        let channel = message.client.channels.find('name', args.join(' '));
+        if (!channel) return message.reply('**لا يوجد روم بهذا الاسم**').catch(console.error);
+        channel.delete()
+    }
+});
 client.login(process.env.BOT_TOKEN);
