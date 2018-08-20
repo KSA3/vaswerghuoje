@@ -775,7 +775,7 @@ client.on ("guildMemberRemove", member => {
      
 })
  client.on('message', message => {
-    if (message.content.startsWith("-رابط")) {
+    if (message.content.startsWith("-link")) {
         message.channel.createInvite({
         thing: true,
         maxUses: 1,
