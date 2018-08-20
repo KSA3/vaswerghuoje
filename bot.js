@@ -435,50 +435,6 @@ client.on('message', message => {
     return message.reply(`** No Invite Links :angry: ! **`)
     }
 });
-client.on("message", message => {
-    var prefix = "-";
- 
-            var args = message.content.substring(prefix.length).split(" ");
-            if (message.content.startsWith(prefix + "clear")) {
-   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('** You Dont Have Permission **');
-        var msg;
-        msg = parseInt();
-      
-      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
-      message.channel.sendMessage("", {embed: {
-        title: "Done | تــم",
-        color: 0x06DF00,
-        description: "تم مسح الرسائل بنجاح",
-        footer: {
-          text: "Masters Bot."
-        }
-      }}).then(msg => {msg.delete(3000)});
-                          }
-
-     
-});
-client.on('message', message => {
-var prefix = "-";
-      if(message.content === prefix + "hchannel") {
-      if(!message.channel.guild) return;
-      if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('You Dont Have Permission');
-             message.channel.overwritePermissions(message.guild.id, {
-             READ_MESSAGES: false
- })
-              message.channel.send(' Done ')
- }
-});
-client.on('message', message => {
-var prefix = "-";
-      if(message.content === prefix + "schannel") {
-      if(!message.channel.guild) return;
-      if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply(' You Dont Have Permission ');
-             message.channel.overwritePermissions(message.guild.id, {
-             READ_MESSAGES: true
- })
-              message.channel.send(' Done ')
- }
-});
     client.on('message', msg => {
   if (msg.content === '-help') {
     msg.reply(':envelope: | تم ارسال الرساله في الخاص');
@@ -562,69 +518,6 @@ client.on("message", message => {
 
 };
 
-});
-client.on('message', message => {
-var prefix = "-"
-  if (message.author.omar) return;
-  if (!message.content.startsWith(prefix)) return;
-  var command = message.content.split(" ")[0];
-  command = command.slice(prefix.length);
-  var args = message.content.split(" ").slice(1);
-  if (command == "ban") {
-   if(!message.channel.guild) return message.reply('** This command only for servers**');
-  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("** You Dont Have Permission **");
-if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("** You Dont Have Permission **");
-var user = message.mentions.users.first();
-  var reason = message.content.split(" ").slice(2).join(" ");
-  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
-  if(!reason) return message.reply ("**اكتب سبب الطرد**");
-  if (!message.guild.member(user).banable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالي**");
-  const banembed = new Discord.RichEmbed()
-  .setAuthor(`BAN!`, user.displayAvatarURL)
-  .setColor("RANDOM")
-  .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
-  .addField("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
-  .addField("**Reason:**", '**[ ' + `${reason}` + ' ]**')
-  user.send(reason).then(()=>{
-message.guild.member(user).kick();
-  })
-}
-});
-client.on('message', message => {
-    var prefix = "-"
-  if (message.author.x5bz) return;
-  if (!message.content.startsWith(prefix)) return;
-
-  let command = message.content.split(" ")[0];
-  command = command.slice(prefix.length);
-
-  let args = message.content.split(" ").slice(1);
-
-  if (command == "kick") {
-               if(!message.channel.guild) return message.reply('** This command only for servers**');
-         
-  if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("** You Dont Have Permission **");
-  if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.reply("** You Dont Have Permission **");
-  let user = message.mentions.users.first();
-  let reason = message.content.split(" ").slice(2).join(" ");
-  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
-  if(!reason) return message.reply ("**اكتب سبب الطرد**");
-  if (!message.guild.member(user)
-  .kickable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالي**");
-
-  message.guild.member(user).kick();
-
-  const kickembed = new Discord.RichEmbed()
-  .setAuthor(`KICKED!`, user.displayAvatarURL)
-  .setColor("RANDOM")
-  .setTimestamp()
-  .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
-  .addField("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
-  .addField("**Reason:**", '**[ ' + `${reason}` + ' ]**')
-  message.channel.send({
-    embed : kickembed
-  })
-}
 });
 client.on('message', message =>{
     let args = message.content.split(' ');
@@ -746,7 +639,7 @@ client.on ("guildMemberRemove", member => {
      
 })
  client.on('message', message => {
-    if (message.content.startsWith("-رابط")) {
+    if (message.content.startsWith("-link")) {
         message.channel.createInvite({
         thing: true,
         maxUses: 1,
