@@ -372,8 +372,9 @@ if (message.content === '-help') {
                 .addField("**AVATAR**" ,"**الاستخدام:** ``-avatar صورة حسابك ``")
                 .addField("**LINK**" ,"**الاستخدام:** ``-link أرسال رابط السيرفر ``")
                 .addField("**ID**" ,"**الاستخدام:** ``-id معلومات عن حسابك ``")
-	            .addField("**MUSIC**" ,"**الاستخدام:** ``-music اوامر لتشغيل الاغاني ``")
+	        .addField("**MUSIC**" ,"**الاستخدام:** ``-music اوامر لتشغيل الاغاني ``")
                 .addField("**ADMIN**" ,"**الاستخدام:** ``-admin الاوامر الادارية ``")
+	        .addField("**GAMES**" ,"**الاستخدام:** ``-games اوامر الالعاب ``")
                 .addField("**PLAYER**" ,"**الاستخدام:** ``-player لمعرفة عدد اعضاء السيرفر ``")
                 .addField("**SERVER**" ,"**الاستخدام:** ``-server معلومات عن السيرفر ``")
                 .addField("**INVITE**" ,"**الاستخدام:** ``-invite  لمعرفة انت كم جايب عضو ل السيرفر``")
@@ -409,8 +410,8 @@ if (message.content === '-admin') {
                 .addField("**UNMUTE**" ,"**الاستخدام:** ``-unmute لفك الميوت عن الشخص ``")
                 .addField("**RESTART**" ,"**الاستخدام:** ``-restart ريستارت للبوت بالامر ``")
                 .addField("**CLEAR**" ,"**الاستخدام:** ``-clear مسح بعدد ``")
-			    .addField("**BC**" ,"**الاستخدام:** ``-bc ارسال رسالة لجميع الي في السيرفر ``")
-		        .addField("**BOT**" ,"**الاستخدام:** ``-bot لمعرفة عدد السيرفرات الي فيها بوتك ``")
+		.addField("**BC**" ,"**الاستخدام:** ``-bc ارسال رسالة لجميع الي في السيرفر ``")
+		.addField("**BOT**" ,"**الاستخدام:** ``-bot لمعرفة عدد السيرفرات الي فيها بوتك ``")
                 .setColor('RANDOM')
 .setColor('RANDOM')
   message.author.sendEmbed(embed);
@@ -802,10 +803,23 @@ client.on('message', message => {
     });
 var memes =["http://www.shuuf.com/shof/uploads/2015/09/09/jpg/shof_b9d73150f90a594.jpg","https://haltaalam.info/wp-content/uploads/2015/05/0.208.png","https://haltaalam.info/wp-content/uploads/2015/05/266.png","https://haltaalam.info/wp-content/uploads/2015/05/250.png","https://haltaalam.info/wp-content/uploads/2017/02/0.2517.png","https://pbs.twimg.com/media/CP0mi02UAAA3U2z.png","http://www.shuuf.com/shof/uploads/2015/08/31/jpg/shof_3b74fa7295ec445.jpg","http://www.shuuf.com/shof/uploads/2015/08/22/jpg/shof_fa3be6ab68fb415.jpg","https://pbs.twimg.com/media/CSWPvmRUcAAeZbt.png","https://pbs.twimg.com/media/B18VworIcAIMGsE.png"]
 client.on('message', message => {
-if(message.content.startsWith('*هل تعلم')) {
+if(message.content.startsWith('-هل تعلم')) {
      var embed = new Discord.RichEmbed()
 .setImage(memes[Math.floor(Math.random() * memes.length)])
 message.channel.sendEmbed(embed);
 }
+});
+client.on('message', message => {
+     if (message.content === "-bot") {
+  if(!message.member.hasPermission("ADMINISTRATOR"))
+ return message.channel.send('**You Dont Have Permission **' );
+     let embed = new Discord.RichEmbed()
+  .setColor('RANDOM')
+  .addField("**اسم السيرفر**", message.guild.name)
+  .addField("**عدد السيرفرات الي فيها البوت:**" , client.guilds.size)
+  .addField("**المستخدمين:**", client.users.size)
+  .addField("**قنوات:**", client.channels.size)
+message.channel.sendEmbed(embed);
+    }
 });
 client.login(process.env.BOT_TOKEN);
