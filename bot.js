@@ -712,9 +712,6 @@ client.on('message', message => {
             if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
 if (message.content.startsWith('-bc')){
-  if(!message.member.hasPermission("ADMINISTRATOR"))
- return message.channel.send('**You Dont Have Permission **' );
-              var embed  = new Discord.RichEmbed()
  if(!message.author.id === '331383478719479809') return;
 message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
 client.users.forEach(m =>{
