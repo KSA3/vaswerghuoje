@@ -500,13 +500,6 @@ client.on("message", message => {
     msg.reply(':envelope: | تم ارسال الرساله في الخاص');
   }
 });
-    client.on('message', msg => {
-  if (msg.content === '-admin') {
-	    if(!message.member.hasPermission("ADMINISTRATOR"))
- return message.channel.send('**You Dont Have Permission **' );
-    msg.reply(':envelope: | تم ارسال الرساله في الخاص');
-  }
-});
 client.on('message', message => {
    if (message.content === "-id") {
    let embed = new Discord.RichEmbed()
