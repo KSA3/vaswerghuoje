@@ -621,6 +621,9 @@ client.on('message', message => {
   let args = message.content.split(" ").slice(1);
 
   if (command == "kick") {
+	    const actionlog = message.guild.channels.find('name', 'logs');
+
+    if (!actionlog) return message.channel.send('Can\'t find action-log channel. Are you sure that this channel exists and I have permission to view it? **CANNOT POST LOG.**');
                if(!message.channel.guild) return message.reply('** This command only for servers**');
          
   if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("** You Dont Have Permission **");
