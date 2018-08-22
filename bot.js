@@ -1283,3 +1283,111 @@ collector7.on('collect', r => {
 }
 });
 client.login(process.env.BOT_TOKEN);
+const moment = require('moment');
+
+client.on("guildMemberAdd", member => {
+let welcomer = member.guild.channels.find("name","welcome");
+      if(!welcomer) return;
+      if(welcomer) {
+         moment.locale('ar-ly');
+         var h = member.user;
+        let norelden = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setThumbnail(h.avatarURL)
+        .setAuthor(h.username,h.avatarURL)
+        .addField(': تاريخ دخولك الدسكورد',`${moment(member.user.createdAt).format('D/M/YYYY h:mm a')} **\n** \`${moment(member.user.createdAt).fromNow()}\``,true)            
+         .addField(': تاريخ دخولك السيرفر',`${moment(member.joinedAt).format('D/M/YYYY h:mm a ')} \n\`\`${moment(member.joinedAt).startOf(' ').fromNow()}\`\``, true)      
+         .setFooter(`${h.tag}`,"https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif")
+     welcomer.send({embed:norelden});          
+               
+ 
+      }
+      });
+client.on('ready', () => {
+     client.user.setActivity("System",{type: 'LISTENING'});
+});
+
+var KinG66S = {};
+client.on('guildMemberRemove', member => {
+KinG66S[member.id] = {roles: member.roles.array()};
+});
+
+client.on('guildMemberAdd', member => {
+if(!KinG66S[member.user.id]) return;
+console.log(KinG66S[member.user.id].roles.length);
+for(let i = 0; i < KinG66S[member.user.id].roles.length + 1; i++) {
+member.addRole(KinG66S[member.user.id].roles.shift());
+}
+});
+
+
+
+var dat = JSON.parse("{}");
+var guild;
+client.on("ready", () => {
+    guild =  client.guilds.find("name", "welcome")
+    guild.fetchInvites()
+    .then((data) => {
+        data.forEach((Invite, key, map) => {
+            var Inv = Invite.code;
+            dat[Inv] = Invite.uses;
+        })
+    })
+})
+var channel;
+client.on("guildMemberAdd", (member) => {
+    channel = member.guild.channels.find("name", "welcome")
+    if (!channel) {
+        console.log("!channel fails");
+        return;
+    }
+    if (member.id == client.user.id) {
+        return;
+    }
+    if(!guild){
+       guild =  client.guilds.find("name", "welcome")
+    }
+    guild.fetchInvites().then((data) => {
+        data.forEach((Invite, key, map) => {
+            var Inv = Invite.code;
+            if (dat[Inv])
+                if (dat[Inv] < Invite.uses) {
+
+                    channel.send(`:rose:${member} joined over ${Invite.inviter}'s invite:rose:`)            
+                     }
+            dat[Inv] = Invite.uses;
+        })
+    })
+});
+
+
+
+client.on("guildMemberAdd", function(member) {
+    const wc = member.guild.channels.find("name", "welcome")
+        const embed = new Discord.RichEmbed()
+        .setColor('#00ff47')
+        .setAuthor(member.user.tag, member.user.avatarURL)
+ .setDescription('***:wink:منور سيرفر السبورت:wink:***')
+.setThumbnail(member.avatarURL)
+  .setImage('https://cdn.discordapp.com/attachments/463423281664622592/478294550289449003/1534099881560.png')
+        .setTimestamp()
+        return wc.sendEmbed(embed);
+        
+});
+
+
+client.on('guildMemberRemove', member => {
+    var embed = new Discord.RichEmbed()
+    .setAuthor(member.user.username, member.user.avatarURL)
+    .setThumbnail(member.user.avatarURL)
+    .setTitle(`راح ورح`)
+    .setDescription(`:hearts:...نراك قريبا:hearts:`)
+    .addField(':sweat:الباقي',`**[ ${member.guild.memberCount} ]**`,true)
+    .setColor('RED')
+    .setFooter(`Bye..`, '')
+
+var channel =member.guild.channels.find('name', 'welcome')
+if (!channel) return;
+channel.send({embed : embed});
+});
+client.login(process.env.BOT_TOKEN);
