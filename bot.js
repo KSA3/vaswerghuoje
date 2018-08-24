@@ -371,7 +371,6 @@ if (message.content === '-help') {
                 .addField("**👫الاوامر العامة👫**","** **")
                 .addField("**AVATAR**" ,"**الاستخدام:** ``-avatar صورة حسابك ``")
                 .addField("**LINK**" ,"**الاستخدام:** ``-link أرسال رابط السيرفر ``")
-	        .addField("**SUPPORT**" ,"**الاستخدام:** ``-support رابط سيرفر السبورت ``")
                 .addField("**ID**" ,"**الاستخدام:** ``-id معلومات عن حسابك ``")
 	        .addField("**DT**" ,"**الاستخدام:** ``-dt يظهر لك الوقت في مكه المكرمه و الامارات و مصر ``")
 	        .addField("**MUSIC**" ,"**الاستخدام:** ``-music اوامر لتشغيل الاغاني ``")
@@ -449,55 +448,12 @@ if (message.content === '-games') {
     }
 });
 client.on('message', message => {
-  if(message.content === ('clear')) {
-  let modRole = message.guild.roles.find("name", "Admin");
-  if (!modRole) return message.reply('You do not have Admin Role'); {
-    }
-  const params = message.content.split(" ").slice(1)
-    let messagecount = parseInt(params[0]);
-    message.channel.fetchMessages({limit: messagecount})
-        .then(messages => message.channel.bulkDelete(messages));
-  }
-});
-client.on('message', message => {
     var args = message.content.split(/[ ]+/)
     if(message.content.includes('discord.gg')){
       if(!message.member.hasPermission('ADMINISTRATOR'))
         message.delete()
     return message.reply(`** No Invite Links :angry: ! **`)
     }
-});
-client.on("message", message => {
-    var prefix = "-";
- 
-            var args = message.content.substring(prefix.length).split(" ");
-            if (message.content.startsWith(prefix + "clear")) {
-   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('** You Dont Have Permission **');
-        var msg;
-        msg = parseInt();
-      
-      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
-      message.channel.sendMessage("", {embed: {
-        title: "Done | تــم",
-        color: 0x06DF00,
-        description: "تم مسح الرسائل بنجاح",
-        footer: {
-          text: "Name Bot."
-        }
-      }}).then(msg => {msg.delete(3000)});
-                          }
-
-     
-});
-    client.on('message', msg => {
-  if (msg.content === '-help') {
-    msg.reply(':envelope: | تم ارسال الرساله في الخاص');
-  }
-});
-    client.on('message', msg => {
-  if (msg.content === '-games') {
-    msg.reply(':envelope: | تم ارسال الرساله في الخاص');
-  }
 });
 client.on('message', message => {
     if (message.content === "-id") {
@@ -524,9 +480,9 @@ client.on("message", message => {
   let command = message.content.split(" ")[0];
  
   if (command === "-unmute") {
-        if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** You Dont Have Permission **").catch(console.error);
+        if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("You Dont Have Permission").catch(console.error);
   let user = message.mentions.users.first();
-  let modlog = client.channels.find('name', 'mute-log');
+  let modlog = client.channels.find('name', 'log');
   let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
   if (!muteRole) return message.reply("** لا يوجد رتبة الميوت 'Muted' **").catch(console.error);
   if (message.mentions.users.size < 1) return message.reply('** يجب عليك المنشن اولاً **').catch(console.error);
@@ -556,9 +512,9 @@ client.on("message", message => {
   let command = message.content.split(" ")[0];
   
   if (command === "-mute") {
-        if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** You Dont Have Permission **").catch(console.error);
+        if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("You Dont Have Permission").catch(console.error);
   let user = message.mentions.users.first();
-  let modlog = client.channels.find('name', 'mute-log');
+  let modlog = client.channels.find('name', 'log');
   let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
   if (!muteRole) return message.reply("** لا يوجد رتبة الميوت 'Muted' **").catch(console.error);
   if (message.mentions.users.size < 1) return message.reply('** يجب عليك المنشن اولاً **').catch(console.error);
@@ -570,7 +526,7 @@ client.on("message", message => {
     .addField('تم ميوت:', `${user.username}#${user.discriminator} (${user.id})`)
     .addField('بواسطة:', `${message.author.username}#${message.author.discriminator}`)
    
-   if (!message.guild.member(client.user).hasPermission('MANAGE_ROLES_OR_PERMISSIONS')) return message.reply('** You Dont Have Permission **').catch(console.error);
+   if (!message.guild.member(client.user).hasPermission('MANAGE_ROLES_OR_PERMISSIONS')) return message.reply('You Dont Have Permission').catch(console.error);
  
   if (message.guild.member(user).roles.has(muteRole.id)) {
      return message.reply("** تم اعطاء العضو المحدد ميوت  **").catch(console.error);
@@ -592,8 +548,8 @@ var prefix = "-"
   var args = message.content.split(" ").slice(1);
   if (command == "ban") {
    if(!message.channel.guild) return message.reply('** This command only for servers**');
-  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("** You Dont Have Permission **");
-if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("** You Dont Have Permission **");
+  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("You Dont Have Permission");
+if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("You Dont Have Permission");
 var user = message.mentions.users.first();
   var reason = message.content.split(" ").slice(2).join(" ");
   if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
@@ -623,8 +579,8 @@ client.on('message', message => {
   if (command == "kick") {
                if(!message.channel.guild) return message.reply('** This command only for servers**');
          
-  if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("** You Dont Have Permission **");
-  if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.reply("** You Dont Have Permission **");
+  if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("You Dont Have Permission");
+  if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.reply("You Dont Have Permission");
   let user = message.mentions.users.first();
   let reason = message.content.split(" ").slice(2).join(" ");
   if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
@@ -843,7 +799,7 @@ message.channel.sendEmbed(embed);
 client.on('message', message => {
      if (message.content === "-bot") {
   if(!message.member.hasPermission("ADMINISTRATOR"))
- return message.channel.send('**You Dont Have Permission **' );
+ return message.channel.send('You Dont Have Permission');
      let embed = new Discord.RichEmbed()
   .setColor('RANDOM')
   .addField("**اسم السيرفر**", message.guild.name)
@@ -881,7 +837,7 @@ client.on('message', message => {
        if(message.content ==="-mutec") {
                            if(!message.channel.guild) return message.reply('** This command only for servers**');
 
-   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **ليس لديك صلاحيات**');
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('You Dont Have Permission');
               message.channel.overwritePermissions(message.guild.id, {
             SEND_MESSAGES: false
 
@@ -889,11 +845,11 @@ client.on('message', message => {
                   message.reply("** تم قفل الشات :white_check_mark: **")
               });
                 }
-//ARAB BOT
+
     if(message.content === "-unmutec") {
                         if(!message.channel.guild) return message.reply('** This command only for servers**');
 
-   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**ليس لديك صلاحيات**');
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('You Dont Have Permission');
               message.channel.overwritePermissions(message.guild.id, {
             SEND_MESSAGES: true
 
@@ -912,11 +868,11 @@ client.on('message', message => {
         let args = message.content.split(' ').slice(1).join(' ');
     if(message.content.split(' ')[0] == '-bc') {
         if (!args[1]) {
-    message.channel.send("**.bc <message>**");
+    message.channel.send("**-bc <message>**");
     return;
     }
             message.guild.members.forEach(m => {
-       if(!message.member.hasPermission('ADMINISTRATOR')) return;
+       if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("You Dont Have Permission");
                 var bc = new Discord.RichEmbed()
                 .setAuthor(message.author.username, message.author.avatarURL)
                 .addField('** الـسيرفر**', `${message.guild.name}`,true)
@@ -1075,25 +1031,13 @@ if(hours3 > 12) {
                  message.channel.sendEmbed(Date15);
         }
     });
-client.on("message", message => {
- if (message.content === "-support") {
-  const embed = new Discord.RichEmbed() 
-      .setColor("#ffff00")
-      .setThumbnail(message.author.avatarURL)
-      .setDescription(`
-	  اهلا بك عزيز مستخدم يسرنا تواجدك معا في سيرفر سبروت
-	  
-	  رابط:(https://discord.gg/AcZGuyU)
-	  `)
-
-
 message.author.sendEmbed(embed)
 
 }
 });
 client.on("message", (message) => {
 if (message.content.startsWith("-ct")) {
-            if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
+            if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Dont Have Permission");
         let args = message.content.split(" ").slice(1);
     message.guild.createChannel(args.join(' '), 'text');
 message.channel.sendMessage('تـم إنـشاء روم كـتابـي')
@@ -1102,7 +1046,7 @@ message.channel.sendMessage('تـم إنـشاء روم كـتابـي')
 });
 client.on("message", (message) => {
 if (message.content.startsWith("-cv")) {
-            if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
+            if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Dont Have Permission");
         let args = message.content.split(" ").slice(1);
     message.guild.createChannel(args.join(' '), 'voice');
     message.channel.sendMessage('تـم إنـشاء روم صـوتي')
@@ -1111,7 +1055,7 @@ if (message.content.startsWith("-cv")) {
 });
 client.on("message", (message) => {
     if (message.content.startsWith('-dc')) {
-        if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
+        if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Dont Have Permission");
 
         let args = message.content.split(' ').slice(1);
         let channel = message.client.channels.find('name', args.join(' '));
@@ -1286,9 +1230,9 @@ collector7.on('collect', r => {
 }
 });
 client.on('message', message => {
-     if(message.content.startsWith("---clear")) {
+     if(message.content.startsWith("-clear")) {
          var args = message.content.split(" ").slice(1);
- if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('You need MANAGE_MESSAGES permission noob');
+ if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('You Dont Have permission');
   if (!args[0]) return message.channel.send('You didn\'t provide any number!!!');
 
   message.channel.bulkDelete(args[0]).then(() => {
@@ -1301,10 +1245,10 @@ client.on('message', message => {
 
     if (!actionlog) return message.channel.send('Can\'t find action-log channel. Are you sure that this channel exists and I have permission to view it? **CANNOT POST LOG.**');
     const embedlog = new Discord.RichEmbed()
-      .setDescription('~Purge~')
+      .setDescription('CLEAR')
       .setColor(0xF16104)
-      .addField('Purged By', `<@${message.author.id}> with ID ${message.author.id}`)
-      .addField('Purged in', message.channel)
+      .addField('Cleared By', `<@${message.author.id}> with ID ${message.author.id}`)
+      .addField('Cleared in', message.channel)
       .addField('Time', message.createdAt);
     actionlog.send(embedlog);
    
