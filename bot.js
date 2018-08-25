@@ -423,31 +423,6 @@ if (message.content === '-admin') {
     }
 });
 client.on('message', message => {
-     if (message.content === ".servers") {
-     let embed = new Discord.RichEmbed()
-  .setColor("#0000FF")
-  .addField("**Server: **" , client.guilds.size)
-  message.channel.sendEmbed(embed);
-    }
-
-client.on('message', msg => {
-  if (msg.content === '7892bs782bs') {
-    msg.reply('s7u2bs298');
-  }
-});
-if (message.content === '-games') {
-              var embed  = new Discord.RichEmbed()
-                .addField("**🎮اوامر الالعاب🎮**","** **")
-                .addField("**لعبه هل تعلم**" ,"**الاستخدام:** ``-هل تعلم ``")
-                .addField("**لعبه لو خيروك**" ,"**الاستخدام:** ``-لو خيروك  ``")
-                .addField("** لعبه كت تويت **" ,"**الاستخدام:** ``-كت تويت  ``")
-	        .addField("**لعبه صراحه**" ,"**الاستخدام:** ``-صراحه ``")
-                .setColor('RANDOM')
-.setColor('RANDOM')
-  message.author.sendEmbed(embed);
-    }
-});
-client.on('message', message => {
     var args = message.content.split(/[ ]+/)
     if(message.content.includes('discord.gg')){
       if(!message.member.hasPermission('ADMINISTRATOR'))
@@ -589,9 +564,6 @@ client.on('message', message => {
   .kickable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالي**");
 
   message.guild.member(user).kick();
-	     const actionlog = message.guild.channels.find('name', 'logs');
-
-    if (!actionlog) return message.channel.send('Can\'t find action-log channel. Are you sure that this channel exists and I have permission to view it? **CANNOT POST LOG.**');
 
   const kickembed = new Discord.RichEmbed()
   .setAuthor(`KICKED!`, user.displayAvatarURL)
@@ -646,21 +618,6 @@ client.on('message', message =>{
       msg.channel.send({embed:embed});
     }
   });
-    client.on("message", message => {
-    if (message.content.match(/([A-Z0-9]|-|_){24}\.([A-Z0-9]|-|_){6}\.([A-Z0-9]|-|_){27}|mfa\.([A-Z0-9]|-|_){84}/gi)) {
-        if(!message.guild.members.get(client.user.id).hasPermission('MANAGE_MESSAGES')) return message.channel.send('**I need Permission \`MANAGE_MESSAGE\`To delete Tokens**')
-        message.delete();
-        message.reply(`you sent your token! Do not worry you've deleted it`);
-        return;
-    }
-                              if(message.channel.type === "dm"){
-    if (message.content.match(/([A-Z0-9]|-|_){24}\.([A-Z0-9]|-|_){6}\.([A-Z0-9]|-|_){27}|mfa\.([A-Z0-9]|-|_){84}/gi)) {
-        message.delete();
-        message.reply(`you sent your token! Do not worry you've deleted it`);
-        return;
-    }
-}
-});
 client.on('message', message => {
     if (message.content.startsWith("-invite")) {
 
@@ -788,50 +745,6 @@ client.on('message', message => {
       .addField('عدد اعضاء السيرفر',`${message.guild.memberCount}`)
       message.channel.send(SaifDz);
     });
-var memes =["http://www.shuuf.com/shof/uploads/2015/09/09/jpg/shof_b9d73150f90a594.jpg","https://haltaalam.info/wp-content/uploads/2015/05/0.208.png","https://haltaalam.info/wp-content/uploads/2015/05/266.png","https://haltaalam.info/wp-content/uploads/2015/05/250.png","https://haltaalam.info/wp-content/uploads/2017/02/0.2517.png","https://pbs.twimg.com/media/CP0mi02UAAA3U2z.png","http://www.shuuf.com/shof/uploads/2015/08/31/jpg/shof_3b74fa7295ec445.jpg","http://www.shuuf.com/shof/uploads/2015/08/22/jpg/shof_fa3be6ab68fb415.jpg","https://pbs.twimg.com/media/CSWPvmRUcAAeZbt.png","https://pbs.twimg.com/media/B18VworIcAIMGsE.png"]
-client.on('message', message => {
-if(message.content.startsWith('-هل تعلم')) {
-     var embed = new Discord.RichEmbed()
-.setImage(memes[Math.floor(Math.random() * memes.length)])
-message.channel.sendEmbed(embed);
-}
-});
-client.on('message', message => {
-     if (message.content === "-bot") {
-  if(!message.member.hasPermission("ADMINISTRATOR"))
- return message.channel.send('You Dont Have Permission');
-     let embed = new Discord.RichEmbed()
-  .setColor('RANDOM')
-  .addField("**اسم السيرفر**", message.guild.name)
-  .addField("**عدد السيرفرات الي فيها البوت:**" , client.guilds.size)
-  .addField("**المستخدمين:**", client.users.size)
-  .addField("**قنوات:**", client.channels.size)
-message.channel.sendEmbed(embed);
-    }
-});
-var viper = ["https://f.top4top.net/p_682it2tg6.png%22","https://e.top4top.net/p_682a1cus5.png%22","https://d.top4top.net/p_682pycol4.png%22","https://c.top4top.net/p_682vqehy3.png%22","https://b.top4top.net/p_682mlf9d2.png%22","https://a.top4top.net/p_6827dule1.png%22","https://b.top4top.net/p_682g1meb10.png%22","https://a.top4top.net/p_682jgp4v9.png%22","https://f.top4top.net/p_682d4joq8.png%22","https://e.top4top.net/p_6828o0e47.png%22","https://d.top4top.net/p_6824x7sy6.png%22","https://c.top4top.net/p_682gzo2l5.png%22","https://b.top4top.net/p_68295qg04.png%22","https://a.top4top.net/p_682zrz6h3.png%22","https://f.top4top.net/p_6828vkzc2.png%22","https://e.top4top.net/p_682i8tb11.png",]
-    client.on('message', message => {
-        var args = message.content.split(" ").slice(1);
-    if(message.content.startsWith('-لو خيروك')) {
-         var lo = new Discord.RichEmbed()
-.setImage(viper[Math.floor(Math.random() * viper.length)])
-message.channel.sendEmbed(lo);
-    }
-});
-const cuttweet = [     'كت تويت ‏| تخيّل لو أنك سترسم شيء وحيد فيصبح حقيقة، ماذا سترسم؟',     'كت تويت | أكثر شيء يُسكِت الطفل برأيك؟',     'كت تويت | الحرية لـ ... ؟',     'كت تويت | قناة الكرتون المفضلة في طفولتك؟',     'كت تويت ‏| كلمة للصُداع؟',     'كت تويت ‏| ما الشيء الذي يُفارقك؟',     'كت تويت ‏| ما الشيء الذي يُفارقك؟',     'كت تويت | موقف مميز فعلته مع شخص ولا يزال يذكره لك؟',     'كت تويت ‏| أيهما ينتصر، الكبرياء أم الحب؟',     'كت تويت | بعد ١٠ سنين ايش بتكون ؟',     'كت تويت ‏| مِن أغرب وأجمل الأسماء التي مرت عليك؟',     '‏كت تويت | عمرك شلت مصيبة عن ش��������ص برغبتك ؟',     'كت تويت | أكثر سؤال وجِّه إليك مؤخرًا؟',     '‏كت تويت | ما هو الشيء الذي يجعلك تشعر بالخوف؟',     '‏كت تويت | وش يفسد الصداقة؟',     '‏كت تويت | شخص لاترفض له طلبا ؟',     '‏كت تويت | كم مره خسرت شخص تحبه؟.',     '‏كت تويت | كيف تتعامل مع الاشخاص السلبيين ؟',     '‏كت تويت | كلمة تشعر بالخجل اذا قيلت لك؟',     '‏كت تويت | جسمك اكبر من عٌمرك او العكسّ ؟!',     '‏كت تويت |أقوى كذبة مشت عليك ؟',     '‏كت تويت | تتأثر بدموع شخص يبكي قدامك قبل تعرف السبب ؟',     'كت تويت | هل حدث وضحيت من أجل شخصٍ أحببت؟',     '‏كت تويت | أكثر تطبيق تستخدمه مؤخرًا؟',     '‏كت تويت | ‏اكثر شي يرضيك اذا زعلت بدون تفكير ؟',     '‏كت تويت | وش محتاج عشان تكون مبسوط ؟',     '‏كت تويت | مطلبك الوحيد الحين ؟',     '‏كت تويت | هل حدث وشعرت بأنك ارتكبت أحد الذنوب أثناء الصيام؟',]
-
-client.on('message', message => {
-   if (message.content.startsWith("-كت تويت")) {
-                if(!message.channel.guild) return message.reply('** This command only for servers**');
-  var embed = new Discord.RichEmbed()
-  .setColor('RANDOM')
-   .setThumbnail(message.author.avatarURL) 
- .addField('lightbot' ,
-  `${cuttweet[Math.floor(Math.random() * cuttweet.length)]}`)
-  message.channel.sendEmbed(embed);
-  console.log('[id] Send By: ' + message.author.username)
-    }
-});
 					client.on('message', message => {
 
        if(message.content ==="-mutec") {
@@ -858,182 +771,7 @@ client.on('message', message => {
               });
                 }
                 
-         
-       
-});
-					client.on('message', message => {
-        if (message.author.id === client.user.id) return;
-        if (message.guild) {
-       let embed = new Discord.RichEmbed()
-        let args = message.content.split(' ').slice(1).join(' ');
-    if(message.content.split(' ')[0] == '-bc') {
-        if (!args[1]) {
-    message.channel.send("**-bc <message>**");
-    return;
-    }
-            message.guild.members.forEach(m => {
-       if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("You Dont Have Permission");
-                var bc = new Discord.RichEmbed()
-                .setAuthor(message.author.username, message.author.avatarURL)
-                .addField('** الـسيرفر**', `${message.guild.name}`,true)
-                .addField(' **الـمرسل **', `${message.author.username}#${message.author.discriminator}`,true)
-                .addField(' **الرسالة** ', args)
-                .setThumbnail(message.guild.iconURL)
-                .setColor('RANDOM')
-                m.send(`${m}`,{embed: bc});
-            });
-            const AziRo = new Discord.RichEmbed()
-            .setAuthor(message.author.username, message.author.avatarURL)   
-            .setTitle('✔️ | جاري ارسال رسالتك ') 
-            .addBlankField(true)
-            .addField('👥 | عدد الاعضاء المرسل لهم ', message.guild.memberCount , true)        
-            .addField('📋| الرسالة ', args)
-            .setColor('RANDOM')  
-            message.channel.sendEmbed(AziRo);          
-        }
-        } else {
-            return;
-        }
-    });
- const Sra7a = [
-    'صراحه  |  صوتك حلوة؟',
-    'صراحه  |  التقيت الناس مع وجوهين؟',
-    'صراحه  |  شيء وكنت تحقق اللسان؟',
-    'صراحه  |  أنا شخص ضعيف عندما؟',
-    'صراحه  |  هل ترغب في إظهار حبك ومرفق لشخص أو رؤية هذا الضعف؟',
-    'صراحه  |  يدل على أن الكذب مرات تكون ضرورية شي؟',
-    'صراحه  |  أشعر بالوحدة على الرغم من أنني تحيط بك كثيرا؟',
-    'صراحه  |  كيفية الكشف عن من يكمن عليك؟',
-    'صراحه  |  إذا حاول شخص ما أن يكرهه أن يقترب منك ويهتم بك تعطيه فرصة؟',
-    'صراحه  |  أشجع شيء حلو في حياتك؟',
-    'صراحه  |  طريقة جيدة يقنع حتى لو كانت الفكرة خاطئة" توافق؟',
-    'صراحه  |  كيف تتصرف مع من يسيئون فهمك ويأخذ على ذهنه ثم ينتظر أن يرفض؟',
-    'صراحه  |  التغيير العادي عندما يكون الشخص الذي يحبه؟',
-    'صراحه  |  المواقف الصعبة تضعف لك ولا ترفع؟',
-    'صراحه  |  نظرة و يفسد الصداقة؟',
-    'صراحه  |  ‏‏إذا أحد قالك كلام سيء بالغالب وش تكون ردة فعلك؟',
-    'صراحه  |  شخص معك بالحلوه والمُره؟',
-    'صراحه  |  ‏هل تحب إظهار حبك وتعلقك بالشخص أم ترى ذلك ضعف؟',
-    'صراحه  |  تأخذ بكلام اللي ينصحك ولا تسوي اللي تبي؟',
-    'صراحه  |  وش تتمنى الناس تعرف عليك؟',
-    'صراحه  |  ابيع المجرة عشان؟',
-    'صراحه  |  أحيانا احس ان الناس ، كمل؟',
-    'صراحه  |  مع مين ودك تنام اليوم؟',
-    'صراحه  |  صدفة العمر الحلوة هي اني؟',
-    'صراحه  |  الكُره العظيم دايم يجي بعد حُب قوي " تتفق؟',
-    'صراحه  |  صفة تحبها في نفسك؟',
-    'صراحه  |  ‏الفقر فقر العقول ليس الجيوب " ، تتفق؟',
-    'صراحه  |  تصلي صلواتك الخمس كلها؟',
-    'صراحه  |  ‏تجامل أحد على راحتك؟',
-    'صراحه  |  اشجع شيء سويتة بحياتك؟',
-    'صراحه  |  وش ناوي تسوي اليوم؟',
-    'صراحه  |  وش شعورك لما تشوف المطر؟',
-    'صراحه  |  غيرتك هاديه ولا تسوي مشاكل؟',
-    'صراحه  |  ما اكثر شي ندمن عليه؟',
-    'صراحه  |  اي الدول تتمنى ان تزورها؟',
-    'صراحه  |  متى اخر مره بكيت؟',
-    'صراحه  |  تقيم حظك ؟ من عشره؟',
-    'صراحه  |  هل تعتقد ان حظك سيئ؟',
-    'صراحه  |  شـخــص تتمنــي الإنتقــام منـــه؟',
-    'صراحه  |  كلمة تود سماعها كل يوم؟',
-    'صراحه  |  **هل تُتقن عملك أم تشعر بالممل؟',
-    'صراحه  |  هل قمت بانتحال أحد الشخصيات لتكذب على من حولك؟',
-    'صراحه  |  متى آخر مرة قمت بعمل مُشكلة كبيرة وتسببت في خسائر؟',
-    'صراحه  |  ما هو اسوأ خبر سمعته بحياتك؟',
-    '‏صراحه | هل جرحت شخص تحبه من قبل ؟',
-    'صراحه  |  ما هي العادة التي تُحب أن تبتعد عنها؟',
-    '‏صراحه | هل تحب عائلتك ام تكرههم؟',
-    '‏صراحه  |  من هو الشخص الذي يأتي في قلبك بعد الله – سبحانه وتعالى- ورسوله الكريم – صلى الله عليه وسلم؟',
-    '‏صراحه  |  هل خجلت من نفسك من قبل؟',
-    '‏صراحه  |  ما هو ا الحلم  الذي لم تستطيع ان تحققه؟',
-    '‏صراحه  |  ما هو الشخص الذي تحلم به كل ليلة؟',
-    '‏صراحه  |  هل تعرضت إلى موقف مُحرج جعلك تكره صاحبهُ؟',
-     '‏صراحه  |  هل قمت بالبكاء أمام من تُحب؟',
-    '‏صراحه  |  ماذا تختار حبيبك أم صديقك؟',
-    '‏صراحه  | هل حياتك سعيدة أم حزينة؟',
-    'صراحه  |  ما هي أجمل سنة عشتها بحياتك؟',
-    '‏صراحه  |  ما هو عمرك الحقيقي؟',
-    '‏صراحه  |  ما اكثر شي ندمن عليه؟',
-    'صراحه  |  ما هي أمنياتك المُستقبلية؟‏',
-]
-  client.on('message', message => {
-if (message.content.startsWith('-صراحه')) {
-    if(!message.channel.guild) return message.reply('** This command only for servers **');
- var client= new Discord.RichEmbed()
- .setTitle("لعبة صراحة ..")
- .setColor('RANDOM')
- .setDescription(`${Sra7a[Math.floor(Math.random() * Sra7a.length)]}`)
- .setImage("https://cdn.discordapp.com/attachments/371269161470525444/384103927060234242/125.png")
-                 .setTimestamp()
-
-  message.channel.sendEmbed(client);
-  message.react("??")
-}
-});
-client.on('message', message => {
-         if (message.content === prefix + "dt") {
-         if (!message.channel.guild) return message.reply('** This command only for servers **');  
-         var currentTime = new Date(),
-            hours = currentTime.getHours() + 4 ,
-            hours2 = currentTime.getHours() + 3 ,
-            hours3 = currentTime.getHours() + 2 ,
-            hours4 = currentTime.getHours() + 3 ,
-            minutes = currentTime.getMinutes(),
-            seconds = currentTime.getSeconds(),
-            Year = currentTime.getFullYear(),
-            Month = currentTime.getMonth() + 1,
-            Day = currentTime.getDate();
-             var h = hours
-  if(hours > 12) {
-               hours -= 12;
-            } else if(hours == 0) {
-                hours = "12";
-            }  
-             if(hours2 > 12) {
-               hours2 -= 12;
-            } else if(hours2 == 0) {
-                hours2 = "12";
-            
-            }  
-if(hours3 > 12) {
-               hours3 -= 12;
-            } else if(hours3 == 0) {
-                hours3 = "12";
-            } 
-            if (minutes < 10) {
-                minutes = '0' + minutes;
-            }
-
-
-            var suffix = 'صباحاَ';
-            if (hours >= 12) {
-                suffix = 'مساء';
-                hours = hours - 12;
-            }
-            if (hours == 0) {
-                hours = 12;
-            }
- var Date15= new Discord.RichEmbed()
-                .setThumbnail("https://i.imgur.com/ib3n4Hq.png") 
-                .setTitle( "「التاريخ  والوقت」")
-                .setColor('RANDOM')
-                .setFooter(message.author.username, message.author.avatarURL)
-                .addField('الامارات',
-                "「"+ hours + ":" + minutes +":"+ seconds + "」")
-                 .addField('مكه المكرمه',
-                "「"+ hours2 + ":" + minutes +":"+ seconds  + "」") 
-                .addField('مصر',
-                "「"+ hours3 + ":" + minutes +":"+ seconds  + "」") 
                 
-                .addField('Date',
-                "「"+ Day + "-" + Month + "-" + Year +  "」")
-
-                 message.channel.sendEmbed(Date15);
-        }
-    });
-message.author.sendEmbed(embed)
-
-}
 });
 client.on("message", (message) => {
 if (message.content.startsWith("-ct")) {
@@ -1058,7 +796,7 @@ client.on("message", (message) => {
         if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Dont Have Permission");
 
         let args = message.content.split(' ').slice(1);
-        let channel = message.client.channels.find('name', args.join(' '));
+        let channel = message.client.channels.find('name','log')
         if (!channel) return message.reply('**لا يوجد روم بهذا الاسم**').catch(console.error);
         channel.delete()
     }
