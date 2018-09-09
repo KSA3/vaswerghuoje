@@ -5,7 +5,6 @@ const fs = require('fs');
 const moment = require('moment');
 const jimp = require('jimp');
 const Canvas = require('canvas');
-const prefix = "-"
 
 client.on('guildMemberAdd', member => {
      const welcomer =  member.guild.channels.find('name', 'welcome');
@@ -84,6 +83,7 @@ welcomer.sendFile(canvas.toBuffer())
       });                    
  }
 });
+const prefix = "-"
 client.on('ready', () => {
   client.user.setActivity("Smile Life", {type: 'LISTENING'});
   console.log('---------------');
