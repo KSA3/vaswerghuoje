@@ -84,7 +84,7 @@ welcomer.sendFile(canvas.toBuffer())
  }
 });
 client.on('ready', () => {
-  client.user.setActivity("Maric Douglas ORDERS", {type: 'LISTENING'});
+  client.user.setActivity("Smile Life", {type: 'LISTENING'});
   console.log('---------------');
   console.log(' Bot Is Online')
   console.log('---------------')
