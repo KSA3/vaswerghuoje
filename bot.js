@@ -313,7 +313,7 @@ client.on('message', message => {
 });
 client.on('message', message =>{
     let args = message.content.split(' ');
-    let prefix = '*';
+    let prefix = '-';
     
     if(args[0] === `${prefix}avatar`){
         let mentions = message.mentions.members.first()
@@ -1013,4 +1013,7 @@ Dat = currentTime.getDate()
   }
  
 });
+client.on('guildMemberAdd', member=> {
+    member.addRole(member.guild.roles.find("name","↝👨‍مواطن👨‍"));
+    });
 client.login(process.env.BOT_TOKEN);
