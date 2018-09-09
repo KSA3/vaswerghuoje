@@ -7,7 +7,7 @@ const jimp = require('jimp');
 const Canvas = require('canvas');
 
 client.on('guildMemberAdd', member => {
-     const welcomer =  member.guild.channels.find('name', 'welcome');
+     const welcomer =  member.guild.channels.find('name', '🛬-الترحيب-🛬');
     if(!welcomer) return;
       if(welcomer) {
          moment.locale('ar-ly');
@@ -822,7 +822,7 @@ client.on('guildMemberAdd',async member => {
           ctx.clip();
           ctx.drawImage(ava, 36, 21, 260, 260);
            
-          const c = client.channels.find('name', 'welcome');
+          const c = client.channels.find('name', '🛬-الترحيب-🛬');
           c.sendFile(canvas.toBuffer());
  
 });
