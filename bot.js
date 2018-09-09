@@ -992,12 +992,6 @@ client.on('message' , message => {
 	    console.log('[unban] Send By: ' + message.author.username)
     }
 });
-  client.on("guildCreate", guild => {
-client.channels.get("478826880921763840").send(' ***  BOT  ***   **Join To**   ***[ ' + `${guild.name}` + ' ]***   ,   **  Owner  **  ' + ' ***[ ' + '<@' + `${guild.owner.user.id}` + '>' + ' ]***  **|**  ***[ ' + '<' + `${guild.owner.user.username}` + '>' + ' ]***')
-});
-
-client.on("guildDelete", guild => {
-client.channels.get("478826880921763840").send(' ***  BOT  ***   **Leave From**   ***[ ' + `${guild.name}` + ' ]***   ,   **  Owner  **  ' + ' ***[ ' + '<@' + `${guild.owner.user.id}` + '>' + ' ]***  **|**  ***[ ' + '<' + `${guild.owner.user.username}` + '>' + ' ]***')
 client.on('message',async msg => {
   var p = "-";
   if(msg.content.startsWith(p + "user")) {
