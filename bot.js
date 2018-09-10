@@ -463,9 +463,9 @@ client.on('message', message => {
     }
 });
 client.on('message', message => {
+if(message.channel.id '475843984917528577') return; message.reply('✅ تم تسجيل دخولك');
  if(message.content === 'تسجيل دخول'){
-if(message.channel.id '475843984917528577') return;
-	 message.channel.send('✅ تم تسجيل دخولك')
+	 message.reply('✅ تم تسجيل دخولك');
     }
 });
 client.on('message', message => {
