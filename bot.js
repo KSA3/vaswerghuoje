@@ -1036,44 +1036,49 @@ Dat = currentTime.getDate()
 client.on('guildMemberAdd', member=> {
     member.addRole(member.guild.roles.find("name","↝👨‍مواطن👨‍"));
     });
-client.on('message',async message => {
-  if(message.content.startsWith(prefix + "bc")) {
-    let filter = m => m.author.id === message.author.id;
-    let thisMessage;
-    let thisFalse;
-    message.channel.send(':regional_indicator_b::regional_indicator_c:| **ارسل الرسالة الان**').then(msg => {
-
-    let awaitM = message.channel.awaitMessages(filter, {
-      max: 1,
-      time: 20000,
-      errors: ['time']
+client.on('message', message => {
+              if(!message.channel.guild) return;
+    var prefix = "-";
+    if(message.content.startsWith('-bc')) {
+    if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للإدارة**').then(m => m.delete(5000));
+  if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية لاستعمال هاذا الأمر**`ADMINISTRATOR`' );
+    let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
+    let copy = "S Bot";
+    let request = `Requested By ${message.author.username}`;
+    if (!args) return message.reply('**يجب عليك كتابة شيئ لإرسال البرودكاست**');message.channel.send(`**هل أنت متأكد من الإرسال؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {
+    msg.react('✅')
+    .then(() => msg.react('❌'))
+    .then(() =>msg.react('✅'))
+ 
+    let reaction1Filter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
+    let reaction2Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
+          let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
+    let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
+    reaction1.on("collect", r => {
+    message.channel.send(`**☑ |   لقد تم ارسال الرسالة لـ ${message.guild.members.size} عضوآ**`).then(m => m.delete(5000));
+    message.guild.members.forEach(m => {
+    var bc = new
+       Discord.RichEmbed()
+       .setColor('RANDOM')
+       .setDescription(`البرودكاست :mega:
+**:shield: السيرفر : ** ${message.guild.name}
+** :thinking:  المرسل : ** ${message.author.username}
+**  الرسالة : ** ${args}
+ 
+ 
+ 
+ 
+        `)
+         .setTimestamp()
+         .setFooter('Smile Life')
+    m.send({ embed: bc })
+    msg.delete();
     })
-    .then(collected => {
-      collected.first().delete();
-      thisMessage = collected.first().content;
-      msg.edit(':regional_indicator_b::regional_indicator_c:| **هل انت متأكد؟**');
-      let awaitY = message.channel.awaitMessages(response => response.content === 'نعم' || 'لا' && filter,{
-        max: 1,
-        time: 20000,
-        errors: ['time']
-      })
-      .then(collected => {
-        if(collected.first().content === 'لا') {
-          msg.delete();
-          message.delete();
-          thisFalse = false;
-        }
-        if(collected.first().content === 'نعم') {
-          if(thisFalse === false) return;
-        message.guild.members.forEach(member => {
-          msg.edit(':regional_indicator_b::regional_indicator_c:| **جاري الارسال**');
-          collected.first().delete();
-          member.send(`${thisMessage}\n\n${member} ,\nتم الارسال من : ${message.guild.name}\n تم الارسال بواسطة : ${message.author.tag}`);
-        });
-        }
-      });
+    })
+    reaction2.on("collect", r => {
+    message.channel.send(`**تم الغاء البرودكاست :x:.**`).then(m => m.delete(5000));
+    })
+    })
+    }
     });
-    });
-  }
-});
 client.login(process.env.BOT_TOKEN);
