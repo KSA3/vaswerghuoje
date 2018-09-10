@@ -458,6 +458,15 @@ client.on('message', message => {
     }
 });
 client.on('message', message => {
+    if(message.content === 'iP'){
+        message.channel.send('185.249.198.195:30120')
+    }
+});
+client.on('message', message => {
+ if(message.content === 'تسجيل دخول'){
+if(message.channel.id '475843984917528577') return;
+	 message.channel.send('✅ تم تسجيل دخولك')
+client.on('message', message => {
        if(message.content ==="-mutec") {
                            if(!message.channel.guild) return message.reply('** This command only for servers**');
 
