@@ -463,9 +463,13 @@ client.on('message', message => {
     }
 });
 client.on('message', message => {
-if(message.channel.id '475843984917528577') return; message.reply('✅ تم تسجيل دخولك');
- if(message.content === 'تسجيل دخول'){
-	 message.reply('✅ تم تسجيل دخولك');
+    if(message.content === 'تسجيل دخول'){
+        message.channel.send('✅ تم تسجيل دخولك')
+    }
+});
+client.on('message', message => {
+    if(message.content === 'تسجيل خروج'){
+        message.channel.send('✅ تم تسجيل خروجك')
     }
 });
 client.on('message', message => {
@@ -515,7 +519,7 @@ if (message.content.startsWith("-cv")) {
 }
 });
 client.on('message', message => {
-	var prefix = '*'; 
+	var prefix = '-'; 
     let args = message.content.split(" ").slice(1);
     if (message.author.bot) return;
     if (!message.channel.guild) return;
