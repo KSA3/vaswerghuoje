@@ -118,6 +118,8 @@ if (message.content.startsWith(prefix + 'help')) {
 ⤠ ${prefix}ban @user <reason> ⥨ حظر الشخص من السيرفر
 ⤠ ${prefix}kick @user <reason> ⥨ طرد الشخص من السيرفر
 ⤠ ${prefix}ct <name> ⥨ انشاء روم كتابي
+⤠ ${prefix}voice ⥨ يطلع لك كم شخص في فويس اونلاين
+⤠ ${prefix}players ⥨ حالات الاعبين
 ⤠ ${prefix}cv <name> ⥨ انشاء روم صوتي
 **
    `,`
@@ -1055,7 +1057,7 @@ client.on('message', message => {
               if(!message.channel.guild) return;
     var prefix = "-";
     if(message.content.startsWith('-bc')) {
-    if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للإدارة**').then(m => m.delete(5000));
+    if(!message.channel.guild) return message.channel.send('لا تمتلك الصلاحيات الازمة لهذا الأمر').then(m => m.delete(5000));
   if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية لاستعمال هاذا الأمر**`ADMINISTRATOR`' );
     let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
     let copy = "S Bot";
@@ -1096,4 +1098,31 @@ client.on('message', message => {
     })
     }
     });
+client.on('message' , message => {
+if(message.content === '-voice') {
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('لا تمتلك الصلاحيات الازمة لهذا الأمر');
+    message.channel.send(`**عدد الاشخاص الموجودين بـ  الرومات الصوتيه : ${message.guild.members.filter(g => g.voiceChannel).size}**`);
+}
+});
+client.on('message',function(message) {
+  if (message.author.bot) return;
+
+
+                  if(!message.channel.guild) return;
+
+                    if (message.content === prefix + "players") {
+		if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('لا تمتلك الصلاحيات الازمة لهذا الأمر');
+ const embed = new Discord.RichEmbed()
+
+    .setDescription(`**Members info ✨
+ اونلاين:   ${message.guild.members.filter(m=>m.presence.status == 'online').size}
+  حاله حمراء       ${message.guild.members.filter(m=>m.presence.status == 'dnd').size}
+  حاله صفراء:     ${message.guild.members.filter(m=>m.presence.status == 'idle').size}
+  الاوفلاين:     ${message.guild.members.filter(m=>m.presence.status == 'offline').size}
+   عدد الاعضاء:  ${message.guild.memberCount - message.guild.members.filter(m=>m.user.bot).size}
+ البوتات: ${message.guild.members.filter(m=>m.user.bot).size} **`)
+         message.channel.send({embed});
+
+    }
+      });
 client.login(process.env.BOT_TOKEN);
