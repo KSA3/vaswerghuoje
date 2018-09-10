@@ -466,6 +466,8 @@ client.on('message', message => {
  if(message.content === 'تسجيل دخول'){
 if(message.channel.id '475843984917528577') return;
 	 message.channel.send('✅ تم تسجيل دخولك')
+    }
+});
 client.on('message', message => {
        if(message.content ==="-mutec") {
                            if(!message.channel.guild) return message.reply('** This command only for servers**');
