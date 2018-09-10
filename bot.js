@@ -776,7 +776,7 @@ client.on('guildMemberAdd', member => {
 	    .setColor("BLACK")
         .setThumbnail(myUser.avatarURL)
         .addField('= العضو المبند:',`**${myUser.username}**`,true)
-        .addField('= تم تبنيده بواستطة:',`**${exec}**`,true)
+        .addField('= تم تبنيده بواسطة:',`**${exec}**`,true)
         .setFooter(myUser.username,myUser.avatarURL)
             .setTimestamp();
           log.send(embed).catch(e => {
