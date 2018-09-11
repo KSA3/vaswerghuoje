@@ -594,8 +594,8 @@ client.on('message' , message => {
         .setAuthor("ازالة الباند !")
 		.setColor("BLACK")
 		 .setThumbnail(myUser.avatarURL)
-        .addField('= العضو المبند',`**${myUser.username}**`,true)
-        .addField('= تم ازالة الباند بواسطة',`**${exec}**`,true)
+        .addField('العضو المبند',`**${myUser.username}**`,true)
+        .addField('تم ازالة الباند بواسطة',`**${exec}**`,true)
         .setFooter(myUser.username,myUser.avatarURL)
             .setTimestamp();
           log.send(embed).catch(e => {
@@ -624,7 +624,7 @@ client.on('message' , message => {
             .setColor('#fd0101')            
             .setTitle('❌ حذف الرتبة')
             .addField('اسم الرتبة', role.name, true)
-            .addField('= بواسطة',`${exec}`,true)
+            .addField('بواسطة',`${exec}`,true)
             .setTimestamp()
           log.send(embed).catch(e => {
             console.log(e);
@@ -652,7 +652,7 @@ client.on('roleCreate', role => {
           let embed = new Discord.RichEmbed()
             .setTitle('➕ انشاء رتبة')
             .addField('اسم الرتبة', role.name, true)
-            .addField('= بواسطة',`${exec}`,true)
+            .addField('بواسطة',`${exec}`,true)
             .setTimestamp()
           log.send(embed).catch(e => {
             console.log(e);
@@ -747,7 +747,7 @@ client.on('guildMemberAdd', member => {
        let embed = new Discord.RichEmbed()
        .setAuthor(`${newM.user.tag}`, newM.user.avatarURL)
        .setDescription(`${newM} has muted in server`)
-       .setFooter(`By : ${user}`)
+       .setFooter(`By : ${newM}`)
         ch.send(embed)
     }
     if(m1 === true && m2 === false) {
