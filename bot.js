@@ -85,7 +85,7 @@ welcomer.sendFile(canvas.toBuffer())
 });
 const prefix = "-"
 client.on('ready', () => {
-  client.user.setActivity("Smile Life", {type: 'LISTENING'});
+  client.user.setActivity("Type -help", {type: 'LISTENING'});
   console.log('---------------');
   console.log(' Bot Is Online')
   console.log('---------------')
