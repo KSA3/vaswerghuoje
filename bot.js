@@ -1114,8 +1114,6 @@ msg.delete();
 })
 }
 });
-         const arraySort = require('array-sort'),
-          table = require('table');
 
 client.on('message' , async (message) => {
 
