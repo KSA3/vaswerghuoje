@@ -686,13 +686,6 @@ client.on('messageUpdate', (message, newMessage) => {
 
 
 });;
-client.on("guildMemberAdd", member => {
-  member.createDM().then(function (channel) {
-  return channel.send(`:rose:  ولكم نورت السيرفر:rose: 
-:crown:${member}:crown:
-انت العضو رقم ${member.guild.memberCount} `) 
-}).catch(console.error)
-});
 client.on('guildMemberRemove', member => {
     if (!member || !member.id || !member.guild) return;
     const guild = member.guild;
