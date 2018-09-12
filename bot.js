@@ -7,7 +7,7 @@ const jimp = require('jimp');
 const Canvas = require('canvas');
 
 client.on('guildMemberAdd', member => {
-     const welcomer =  member.guild.channels.find('name', '🛬-الترحيب-🛬');
+     const welcomer =  member.guild.channels.find('name', '✈الترحيب✈');
     if(!welcomer) return;
       if(welcomer) {
          moment.locale('ar-ly');
