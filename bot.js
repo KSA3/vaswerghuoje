@@ -1044,7 +1044,7 @@ Dat = currentTime.getDate()
  
 });
 client.on('guildMemberAdd', member=> {
-    member.addRole(member.guild.roles.find("name","↝👨‍مواطن👨‍"));
+    member.addRole(member.guild.roles.find("name","👨‍مواطن👨‍"));
     });
 client.on('message' , message => {
 if(message.content === '-voice') {
