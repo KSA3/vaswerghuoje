@@ -439,22 +439,22 @@ client.on('message', message => {
 });
 client.on('message', message => {
     if(message.content === 'IP'){
-        message.channel.send('قريبا')
+        message.channel.send('185.249.198.195:30120')
     }
 });
 client.on('message', message => {
     if(message.content === 'Ip'){
-        message.channel.send('قريبا')
+        message.channel.send('185.249.198.195:30120')
     }
 });
 client.on('message', message => {
     if(message.content === 'ip'){
-        message.channel.send('قريبا')
+        message.channel.send('185.249.198.195:30120')
     }
 });
 client.on('message', message => {
     if(message.content === 'iP'){
-        message.channel.send('قريبا')
+        message.channel.send('185.249.198.195:30120')
     }
 });
 client.on('message', message => {
