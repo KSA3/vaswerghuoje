@@ -115,7 +115,7 @@ if (message.content.startsWith(prefix + 'help')) {
 ⤠ ${prefix}unmutec ⥨ لفتح الشات
 ⤠ ${prefix}mutec ⥨ لقفل الشات
 ⤠ ${prefix}ban @user <reason> ⥨ حظر الشخص من السيرفر
-⤠ ${prefix}kick @user <reason> ⥨ طرد الشخص من السيرفر
+⤠ ${prefix}@user <reason> ⥨ طرد الشخص من السيرفر
 ⤠ ${prefix}ct <name> ⥨ انشاء روم كتابي
 ⤠ ${prefix}voice ⥨ يطلع لك كم شخص في فويس اونلاين
 ⤠ ${prefix}players ⥨ عدد اعضاء الاعبين
@@ -268,9 +268,9 @@ var user = message.mentions.users.first();
   const banembed = new Discord.RichEmbed()
   .setAuthor(`BAN!`, user.displayAvatarURL)
   .setColor("RANDOM")
-  .addField("**الاسم:**",  '**[ ' + `${user.tag}` + ' ]**')
-  .addField("**بواسطة:**", '**[ ' + `${message.author.tag}` + ' ]**')
-  .addField("**السبب:**", '**[ ' + `${reason}` + ' ]**')
+  .addField("**الاسم:**",  '**[ ' -> `${user.tag}` <- ' ]**')
+  .addField("**بواسطة:**", '**[ ' -> `${message.author.tag}` <- ' ]**')
+  .addField("**السبب:**", '**[ ' -> `${reason}` <- ' ]**')
   user.send(reason).then(()=>{
 message.guild.member(user).kick();
   })
