@@ -1055,7 +1055,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('لا 
 });
 client.on('message', message => {
               if (!message.channel.guild) return;
-      if(message.content =='-player')
+      if(message.content =='-players')
       var SaifDz = new Discord.RichEmbed()
       .setThumbnail(message.author.avatarURL)
       .setFooter(message.author.username, message.author.avatarURL)
