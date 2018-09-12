@@ -268,9 +268,9 @@ var user = message.mentions.users.first();
   const banembed = new Discord.RichEmbed()
   .setAuthor(`BAN!`, user.displayAvatarURL)
   .setColor("RANDOM")
-  .addField("**الاسم:**",  '**[ ' -> `${user.tag}` <- ' ]**')
-  .addField("**بواسطة:**", '**[ ' -> `${message.author.tag}` <- ' ]**')
-  .addField("**السبب:**", '**[ ' -> `${reason}` <- ' ]**')
+  .addField("**الاسم:**",  '**[ ' + `${user.tag}` + ' ]**')
+  .addField("**بواسطة:**", '**[ ' + `${message.author.tag}` + ' ]**')
+  .addField("**السبب:**", '**[ ' + `${reason}` + ' ]**')
   user.send(reason).then(()=>{
 message.guild.member(user).kick();
   })
@@ -439,22 +439,22 @@ client.on('message', message => {
 });
 client.on('message', message => {
     if(message.content === 'IP'){
-        message.channel.send('قريبا')
+        message.channel.send('185.249.198.195:30120')
     }
 });
 client.on('message', message => {
     if(message.content === 'Ip'){
-        message.channel.send('قريبا')
+        message.channel.send('185.249.198.195:30120')
     }
 });
 client.on('message', message => {
     if(message.content === 'ip'){
-        message.channel.send('قريبا')
+        message.channel.send('185.249.198.195:30120')
     }
 });
 client.on('message', message => {
     if(message.content === 'iP'){
-        message.channel.send('قريبا')
+        message.channel.send('185.249.198.195:30120')
     }
 });
 client.on('message', message => {
