@@ -277,8 +277,8 @@ message.guild.member(user).kick();
 }
 });
 client.on('message', message => {
-    var prefix = "-"
-  if (message.author.x5bz) return;
+const prefix = "-";
+  if (message.author.kick) return;
   if (!message.content.startsWith(prefix)) return;
 
   let command = message.content.split(" ")[0];
@@ -287,29 +287,28 @@ client.on('message', message => {
   let args = message.content.split(" ").slice(1);
 
   if (command == "kick") {
-               if(!message.channel.guild) return message.reply('** This command only for servers**');
+               if(!message.channel.guild) return;
          
-  if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("لا تمتلك الصلاحيات الازمة لهذا الأمر");
-  if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.reply("لا تمتلك الصلاحيات الازمة لهذا الأمر");
+  if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("You Don't Have KICK_MEMBERS Permission").then(msg => msg.delete(5000));
+  if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.reply("I Don't Have KICK_Members Permission");
   let user = message.mentions.users.first();
   let reason = message.content.split(" ").slice(2).join(" ");
-  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
-  if(!reason) return message.reply ("**اكتب سبب الطرد**");
+
+  if (message.mentions.users.size < 1) return message.reply("منشن شخص");
+  if(!reason) return message.reply ("اكتب سبب الطرد");
   if (!message.guild.member(user)
-  .kickable) return message.reply("لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالية");
+  .bannable) return message.reply("لايمكنني طرد شخص اعلى من رتبتي");
 
-  message.guild.member(user).kick();
+  message.guild.member(user).kick(7, user);
 
-  const kickembed = new Discord.RichEmbed()
-  .setAuthor(`KICKED!`, user.displayAvatarURL)
+  const banembed = new Discord.RichEmbed()
+  .setAuthor('Kicked !', user.displayAvatarURL)
   .setColor("RANDOM")
   .setTimestamp()
-  .addField("**الاسم:**",  '**[ ' + `${user.tag}` + ' ]**')
-  .addField("**بواسطة:**", '**[ ' + `${message.author.tag}` + ' ]**')
-  .addField("**السبب:**", '**[ ' + `${reason}` + ' ]**')
-  message.channel.send({
-    embed : kickembed
-  })
+  .addField("الاسم:",  `[ + ${user.tag} + ]`)
+  .addField("بواسطة:", `[  + ${message.author.tag} +  ]`)
+  .addField("السبب:", `[ + ${reason} +  ]`)
+  client.channels.get("475803218232868884").send({embed : banembed})
 }
 });
 client.on('message', message =>{
