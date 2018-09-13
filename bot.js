@@ -565,13 +565,7 @@ client.on('message' , message => {
  })
   }  
  });
- client.on('guildMemberRemove', member => {
-  const channel = member.guild.channels.find('name', 'welcome');
-  if (!channel) return;
-  channel.send(`الله يستر عليك, ${member}`);
-  
-})
-    client.on("guildBanRemove", (guild, member) => {
+   client.on("guildBanRemove", (guild, member) => {
   client.setTimeout(() => {
     guild.fetchAuditLogs({
         limit: 1,
@@ -587,8 +581,8 @@ client.on('message' , message => {
         .setAuthor("ازالة الباند !")
 		.setColor("BLACK")
 		 .setThumbnail(myUser.avatarURL)
-        .addField('العضو المبند',`**${myUser.username}**`,true)
-        .addField('تم ازالة الباند بواسطة',`**${exec}**`,true)
+        .addField('= العضو المبند',`**${myUser.username}**`,true)
+        .addField('= تم ازالة الباند بواسطة',`**${exec}**`,true)
         .setFooter(myUser.username,myUser.avatarURL)
             .setTimestamp();
           log.send(embed).catch(e => {
@@ -617,7 +611,7 @@ client.on('message' , message => {
             .setColor('#fd0101')            
             .setTitle('❌ حذف الرتبة')
             .addField('اسم الرتبة', role.name, true)
-            .addField('بواسطة',`${exec}`,true)
+            .addField('= بواسطة',`${exec}`,true)
             .setTimestamp()
           log.send(embed).catch(e => {
             console.log(e);
@@ -645,7 +639,7 @@ client.on('roleCreate', role => {
           let embed = new Discord.RichEmbed()
             .setTitle('➕ انشاء رتبة')
             .addField('اسم الرتبة', role.name, true)
-            .addField('بواسطة',`${exec}`,true)
+            .addField('= بواسطة',`${exec}`,true)
             .setTimestamp()
           log.send(embed).catch(e => {
             console.log(e);
