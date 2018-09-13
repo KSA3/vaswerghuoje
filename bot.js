@@ -611,7 +611,7 @@ client.on('message' , message => {
             .setColor('#fd0101')            
             .setTitle('❌ حذف الرتبة')
             .addField('اسم الرتبة', role.name, true)
-            .addField('= بواسطة',`${exec}`,true)
+            .addField('By', exec, true)
             .setTimestamp()
           log.send(embed).catch(e => {
             console.log(e);
