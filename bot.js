@@ -612,7 +612,7 @@ client.on("roleDelete", role => {
             .setTitle('❌ RoleDeleted')
             .addField('اسم الرتبة:', role.name, true)
             .addField('أيدي الرتبة:', role.id, true)
-            .addField('تم مسح الرتبة من قبل:', exec, true)
+            .addField('TEST',`**${exec}**`,true)
             .setTimestamp()
           log.send(embed).catch(e => {
             console.log(e);
@@ -640,7 +640,7 @@ client.on('roleCreate', role => {
           let embed = new Discord.RichEmbed()
             .setTitle('➕ انشاء رتبة')
             .addField('اسم الرتبة', role.name, true)
-            .addField('= بواسطة',` exec`,true)
+            .addField('تم انشاء الرتبة من قبل:', exec, true)
             .setTimestamp()
           log.send(embed).catch(e => {
             console.log(e);
@@ -674,7 +674,7 @@ client.on('messageUpdate', (message, newMessage) => {
     let embed = new Discord.RichEmbed()
        .setAuthor(`${message.author.tag}`, message.author.avatarURL)
        .setColor('SILVER')
-       .setDescription(`✏ **تعديل رساله
+       .setDescription(`✏ **تعديل رسالة
 ارسلها <@${message.author.id}>                                                                                                                         تم تعديلها في شات** <#${message.channel.id}>\n\nقبل التعديل:\n \`${message.cleanContent}\`\n\nبعد التعديل:\n \`${newMessage.cleanContent}\``)
        .setTimestamp();
      channel.send({embed:embed});
