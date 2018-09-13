@@ -639,7 +639,7 @@ client.on('roleCreate', role => {
           let embed = new Discord.RichEmbed()
             .setTitle('➕ انشاء رتبة')
             .addField('اسم الرتبة', role.name, true)
-            .addField('= بواسطة',`${exec}`,true)
+            .addField('= بواسطة',`<@${member.user.id}>`,true)
             .setTimestamp()
           log.send(embed).catch(e => {
             console.log(e);
