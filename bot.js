@@ -581,8 +581,8 @@ client.on('message' , message => {
         .setAuthor("ازالة الباند !")
 		.setColor("BLACK")
 		 .setThumbnail(myUser.avatarURL)
-        .addField('= العضو المبند',`**${myUser.username}**`,true)
-        .addField('= تم ازالة الباند بواسطة',`**${exec}**`,true)
+        .addField('العضو المبند',`**${myUser.username}**`,true)
+        .addField('تم ازالة الباند بواسطة',`**${exec}**`,true)
         .setFooter(myUser.username,myUser.avatarURL)
             .setTimestamp();
           log.send(embed).catch(e => {
@@ -611,8 +611,6 @@ client.on("roleDelete", role => {
             .setColor('#fd0101')            
             .setTitle('❌ RoleDeleted')
             .addField('اسم الرتبة:', role.name, true)
-            .addField('أيدي الرتبة:', role.id, true)
-            .addField('TEST',`**${exec}**`,true)
             .setTimestamp()
           log.send(embed).catch(e => {
             console.log(e);
@@ -640,7 +638,6 @@ client.on('roleCreate', role => {
           let embed = new Discord.RichEmbed()
             .setTitle('➕ انشاء رتبة')
             .addField('اسم الرتبة', role.name, true)
-            .addField('تم انشاء الرتبة من قبل:', exec, true)
             .setTimestamp()
           log.send(embed).catch(e => {
             console.log(e);
