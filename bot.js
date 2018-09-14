@@ -1432,10 +1432,10 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
 // Join Voice Channel
 	if(voiceOld.voiceChannelID !== voiceNew.voiceChannelID && !voiceOld.voiceChannel) {
 		let voiceJoin = new Discord.RichEmbed()
-		.setTitle('**[JOIN VOICE ROOM]**')
+		.setTitle('**دخل الروم الصوتي**')
 		.setColor('GREEN')
 		.setThumbnail(voiceOld.user.avatarURL)
-		.setDescription(`**\n**:arrow_lower_right: Successfully \`\`JOIN\`\` To Voice Channel.\n\n**Channel:** \`\`${voiceNew.voiceChannel.name}\`\` (ID: ${voiceNew.voiceChannelID})\n**User:** ${voiceOld} (ID: ${voiceOld.id})`)
+		.setDescription(`**\n**:arrow_lower_right: \`\`دخل\`\` الى الروم الصوتي.\n\n**الروم:** \`\`${voiceNew.voiceChannel.name}\`\`\n**الأسم:** ${voiceOld} (ID: ${voiceOld.id})`)
 		.setTimestamp()
 		.setFooter(voiceOld.user.tag, voiceOld.user.avatarURL)
 
@@ -1447,7 +1447,7 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
 		.setTitle('**خرج من الروم الصوتي**')
 		.setColor('GREEN')
 		.setThumbnail(voiceOld.user.avatarURL)
-		.setDescription(`**\n**:arrow_upper_left: \`\`خرج\`\` من الروم الصوتي.\n\n**روم:** \`\`${voiceOld.voiceChannel.name}\`\`\n**الأسم:** ${voiceOld}`)
+		.setDescription(`**\n**:arrow_upper_left: \`\`خرج\`\` من الروم الصوتي.\n\n**الروم:** \`\`${voiceOld.voiceChannel.name}\`\`\n**الأسم:** ${voiceOld}`)
 		.setTimestamp()
 		.setFooter(voiceOld.user.tag, voiceOld.user.avatarURL)
 
@@ -1456,10 +1456,10 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
 // Changed Voice Channel
 	if(voiceOld.voiceChannelID !== voiceNew.voiceChannelID && voiceNew.voiceChannel && voiceOld.voiceChannel != null) {
 		let voiceLeave = new Discord.RichEmbed()
-		.setTitle('**[CHANGED VOICE ROOM]**')
+		.setTitle('**تم انتقالة من الروم الصوتي**')
 		.setColor('GREEN')
 		.setThumbnail(voiceOld.user.avatarURL)
-		.setDescription(`**\n**:repeat: Successfully \`\`CHANGED\`\` The Voice Channel.\n\n**From:** \`\`${voiceOld.voiceChannel.name}\`\` (ID: ${voiceOld.voiceChannelID})\n**To:** \`\`${voiceNew.voiceChannel.name}\`\` (ID: ${voiceNew.voiceChannelID})\n**User:** ${voiceOld} (ID: ${voiceOld.id})`)
+		.setDescription(`**\n**:repeat: \`\`انتقالة\`\` الروم الصوتي.\n\n**من:** \`\`${voiceOld.voiceChannel.name}\`\`\n**الى:** \`\`${voiceNew.voiceChannel.name}\`\`\n**الأسم:** ${voiceOld}`)
 		.setTimestamp()
 		.setFooter(voiceOld.user.tag, voiceOld.user.avatarURL)
 
