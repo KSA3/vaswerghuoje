@@ -1428,42 +1428,5 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
 
 			logChannel.send(serverUndeafv);
 		}
-	})
-// Join Voice Channel
-	if(voiceOld.voiceChannelID !== voiceNew.voiceChannelID && !voiceOld.voiceChannel) {
-		let voiceJoin = new Discord.RichEmbed()
-		.setTitle('**[JOIN VOICE ROOM]**')
-		.setColor('GREEN')
-		.setThumbnail(voiceOld.user.avatarURL)
-		.setDescription(`**\n**:arrow_lower_right: Successfully \`\`JOIN\`\` To Voice Channel.\n\n**Channel:** \`\`${voiceNew.voiceChannel.name}\`\` (ID: ${voiceNew.voiceChannelID})\n**User:** ${voiceOld} (ID: ${voiceOld.id})`)
-		.setTimestamp()
-		.setFooter(voiceOld.user.tag, voiceOld.user.avatarURL)
-
-		logChannel.send(voiceJoin);
-	}
-// Leave Voice Channel
-	if(voiceOld.voiceChannelID !== voiceNew.voiceChannelID && !voiceNew.voiceChannel) {
-		let voiceLeave = new Discord.RichEmbed()
-		.setTitle('**[LEAVE VOICE ROOM]**')
-		.setColor('GREEN')
-		.setThumbnail(voiceOld.user.avatarURL)
-		.setDescription(`**\n**:arrow_upper_left: Successfully \`\`LEAVE\`\` From Voice Channel.\n\n**Channel:** \`\`${voiceOld.voiceChannel.name}\`\` (ID: ${voiceOld.voiceChannelID})\n**User:** ${voiceOld} (ID: ${voiceOld.id})`)
-		.setTimestamp()
-		.setFooter(voiceOld.user.tag, voiceOld.user.avatarURL)
-
-		logChannel.send(voiceLeave);
-	}
-// Changed Voice Channel
-	if(voiceOld.voiceChannelID !== voiceNew.voiceChannelID && voiceNew.voiceChannel && voiceOld.voiceChannel != null) {
-		let voiceLeave = new Discord.RichEmbed()
-		.setTitle('**[CHANGED VOICE ROOM]**')
-		.setColor('GREEN')
-		.setThumbnail(voiceOld.user.avatarURL)
-		.setDescription(`**\n**:repeat: Successfully \`\`CHANGED\`\` The Voice Channel.\n\n**From:** \`\`${voiceOld.voiceChannel.name}\`\` (ID: ${voiceOld.voiceChannelID})\n**To:** \`\`${voiceNew.voiceChannel.name}\`\` (ID: ${voiceNew.voiceChannelID})\n**User:** ${voiceOld} (ID: ${voiceOld.id})`)
-		.setTimestamp()
-		.setFooter(voiceOld.user.tag, voiceOld.user.avatarURL)
-
-		logChannel.send(voiceLeave);
-	}
-});
+	});
 client.login(process.env.BOT_TOKEN);
