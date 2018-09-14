@@ -1320,7 +1320,7 @@ client.on('guildMemberUpdate', (oldMember, newMember) => {
 	})
 	if(oldMember.guild.owner.user.id !== newMember.guild.owner.user.id) {
 		let newOwner = new Discord.RichEmbed()
-		.setTitle('**[UPDATE GUILD OWNER]**')
+		.setTitle('**UPDATE GUILD OWNER**')
 		.setThumbnail(oldMember.guild.iconURL)
 		.setColor('GREEN')
 		.setDescription(`**\n**:white_check_mark: Successfully \`\`TRANSFER\`\` The Owner Ship.\n\n**Old Owner:** <@${oldMember.user.id}> (ID: ${oldMember.user.id})\n**New Owner:** <@${newMember.user.id}> (ID: ${newMember.user.id})`)
@@ -1383,7 +1383,7 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
 // Server Muted Voice
 		if(voiceOld.serverMute === false && voiceNew.serverMute === true) {
 			let serverMutev = new Discord.RichEmbed()
-			.setTitle('**[VOICE MUTE]**')
+			.setTitle('**VOICE MUTE**')
 			.setThumbnail('https://images-ext-1.discordapp.net/external/pWQaw076OHwVIFZyeFoLXvweo0T_fDz6U5C9RBlw_fQ/https/cdn.pg.sa/UosmjqDNgS.png')
 			.setColor('RED')
 			.setDescription(`**User:** <@${voiceOld.user.id}> (ID: ${voiceOld.user.id})\n**By:** <@${userID}> (ID: ${userID})\n**Channel:** \`\`${voiceOld.voiceChannel.name}\`\` (ID: ${voiceOld.voiceChannel.id})`)
@@ -1395,7 +1395,7 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
 // Server UnMuted Voice
 		if(voiceOld.serverMute === true && voiceNew.serverMute === false) {
 			let serverUnmutev = new Discord.RichEmbed()
-			.setTitle('**[VOICE UNMUTE]**')
+			.setTitle('**VOICE UNMUTE**')
 			.setThumbnail('https://images-ext-1.discordapp.net/external/u2JNOTOc1IVJGEb1uCKRdQHXIj5-r8aHa3tSap6SjqM/https/cdn.pg.sa/Iy4t8H4T7n.png')
 			.setColor('GREEN')
 			.setDescription(`**User:** <@${voiceOld.user.id}> (ID: ${voiceOld.user.id})\n**By:** <@${userID}> (ID: ${userID})\n**Channel:** \`\`${voiceOld.voiceChannel.name}\`\` (ID: ${voiceOld.voiceChannel.id})`)
@@ -1407,7 +1407,7 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
 // Server Deafen Voice
 		if(voiceOld.serverDeaf === false && voiceNew.serverDeaf === true) {
 			let serverDeafv = new Discord.RichEmbed()
-			.setTitle('**[VOICE DEAFEN]**')
+			.setTitle('**VOICE DEAFEN**')
 			.setThumbnail('https://images-ext-1.discordapp.net/external/7ENt2ldbD-3L3wRoDBhKHb9FfImkjFxYR6DbLYRjhjA/https/cdn.pg.sa/auWd5b95AV.png')
 			.setColor('RED')
 			.setDescription(`**User:** <@${voiceOld.user.id}> (ID: ${voiceOld.user.id})\n**By:** <@${userID}> (ID: ${userID})\n**Channel:** \`\`${voiceOld.voiceChannel.name}\`\` (ID: ${voiceOld.voiceChannel.id})`)
@@ -1420,7 +1420,7 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
 // Join Voice Channel
 	if(voiceOld.voiceChannelID !== voiceNew.voiceChannelID && !voiceOld.voiceChannel) {
 		let voiceJoin = new Discord.RichEmbed()
-		.setTitle('**[JOIN VOICE ROOM]**')
+		.setTitle('**JOIN VOICE ROOM**')
 		.setColor('GREEN')
 		.setThumbnail(voiceOld.user.avatarURL)
 		.setDescription(`**\n**:arrow_lower_right: Successfully \`\`JOIN\`\` To Voice Channel.\n\n**Channel:** \`\`${voiceNew.voiceChannel.name}\`\` (ID: ${voiceNew.voiceChannelID})\n**User:** ${voiceOld} (ID: ${voiceOld.id})`)
@@ -1432,7 +1432,7 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
 // Leave Voice Channel
 	if(voiceOld.voiceChannelID !== voiceNew.voiceChannelID && !voiceNew.voiceChannel) {
 		let voiceLeave = new Discord.RichEmbed()
-		.setTitle('**[LEAVE VOICE ROOM]**')
+		.setTitle('**LEAVE VOICE ROOM**')
 		.setColor('GREEN')
 		.setThumbnail(voiceOld.user.avatarURL)
 		.setDescription(`**\n**:arrow_upper_left: Successfully \`\`LEAVE\`\` From Voice Channel.\n\n**Channel:** \`\`${voiceOld.voiceChannel.name}\`\` (ID: ${voiceOld.voiceChannelID})\n**User:** ${voiceOld} (ID: ${voiceOld.id})`)
@@ -1444,7 +1444,7 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
 // Changed Voice Channel
 	if(voiceOld.voiceChannelID !== voiceNew.voiceChannelID && voiceNew.voiceChannel && voiceOld.voiceChannel != null) {
 		let voiceLeave = new Discord.RichEmbed()
-		.setTitle('**[CHANGED VOICE ROOM]**')
+		.setTitle('**CHANGED VOICE ROOM**')
 		.setColor('GREEN')
 		.setThumbnail(voiceOld.user.avatarURL)
 		.setDescription(`**\n**:repeat: Successfully \`\`CHANGED\`\` The Voice Channel.\n\n**From:** \`\`${voiceOld.voiceChannel.name}\`\` (ID: ${voiceOld.voiceChannelID})\n**To:** \`\`${voiceNew.voiceChannel.name}\`\` (ID: ${voiceNew.voiceChannelID})\n**User:** ${voiceOld} (ID: ${voiceOld.id})`)
