@@ -1416,26 +1416,14 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
 
 			logChannel.send(serverDeafv);
 		}
-// Server UnDeafen Voice
-		if(voiceOld.serverDeaf === true && voiceNew.serverDeaf === false) {
-			let serverUndeafv = new Discord.RichEmbed()
-			.setTitle('**VOICE UNDEAFEN**')
-			.setThumbnail('https://images-ext-2.discordapp.net/external/s_abcfAlNdxl3uYVXnA2evSKBTpU6Ou3oimkejx3fiQ/https/cdn.pg.sa/i7fC8qnbRF.png')
-			.setColor('GREEN')
-			.setDescription(`**User:** <@${voiceOld.user.id}>\n**By:** <@${userID}>**Channel:** \`\`${voiceOld.voiceChannel.name}\`\`\`)
-			.setTimestamp()
-			.setFooter(userTag, userAvatar)
-
-			logChannel.send(serverUndeafv);
-		}
-	})
+ل
 // Join Voice Channel
 	if(voiceOld.voiceChannelID !== voiceNew.voiceChannelID && !voiceOld.voiceChannel) {
 		let voiceJoin = new Discord.RichEmbed()
-		.setTitle('**JOIN VOICE ROOM**')
+		.setTitle('**[JOIN VOICE ROOM]**')
 		.setColor('GREEN')
 		.setThumbnail(voiceOld.user.avatarURL)
-		.setDescription(`**\n**:arrow_lower_right: Successfully \`\`JOIN\`\` To Voice Channel.\n\n**Channel:** \`\`${voiceNew.voiceChannel.name}\`\`\n**User:** ${voiceOld}`)
+		.setDescription(`**\n**:arrow_lower_right: Successfully \`\`JOIN\`\` To Voice Channel.\n\n**Channel:** \`\`${voiceNew.voiceChannel.name}\`\` (ID: ${voiceNew.voiceChannelID})\n**User:** ${voiceOld} (ID: ${voiceOld.id})`)
 		.setTimestamp()
 		.setFooter(voiceOld.user.tag, voiceOld.user.avatarURL)
 
@@ -1444,10 +1432,10 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
 // Leave Voice Channel
 	if(voiceOld.voiceChannelID !== voiceNew.voiceChannelID && !voiceNew.voiceChannel) {
 		let voiceLeave = new Discord.RichEmbed()
-		.setTitle('**LEAVE VOICE ROOM**')
+		.setTitle('**[LEAVE VOICE ROOM]**')
 		.setColor('GREEN')
 		.setThumbnail(voiceOld.user.avatarURL)
-		.setDescription(`**\n**:arrow_upper_left: Successfully \`\`LEAVE\`\` From Voice Channel.\n\n**Channel:** \`\`${voiceOld.voiceChannel.name}\`\`\n**User:** ${voiceOld}`)
+		.setDescription(`**\n**:arrow_upper_left: Successfully \`\`LEAVE\`\` From Voice Channel.\n\n**Channel:** \`\`${voiceOld.voiceChannel.name}\`\` (ID: ${voiceOld.voiceChannelID})\n**User:** ${voiceOld} (ID: ${voiceOld.id})`)
 		.setTimestamp()
 		.setFooter(voiceOld.user.tag, voiceOld.user.avatarURL)
 
@@ -1456,10 +1444,10 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
 // Changed Voice Channel
 	if(voiceOld.voiceChannelID !== voiceNew.voiceChannelID && voiceNew.voiceChannel && voiceOld.voiceChannel != null) {
 		let voiceLeave = new Discord.RichEmbed()
-		.setTitle('**MOVED VOICE ROOM**')
+		.setTitle('**[CHANGED VOICE ROOM]**')
 		.setColor('GREEN')
 		.setThumbnail(voiceOld.user.avatarURL)
-		.setDescription(`**\n**:repeat: Successfully \`\`MOVED\`\` The Voice Channel.\n\n**From:** \`\`${voiceOld.voiceChannel.name}\`\`\n**To:** \`\`${voiceNew.voiceChannel.name}\`\`\n**User:** ${voiceOld}`)
+		.setDescription(`**\n**:repeat: Successfully \`\`CHANGED\`\` The Voice Channel.\n\n**From:** \`\`${voiceOld.voiceChannel.name}\`\` (ID: ${voiceOld.voiceChannelID})\n**To:** \`\`${voiceNew.voiceChannel.name}\`\` (ID: ${voiceNew.voiceChannelID})\n**User:** ${voiceOld} (ID: ${voiceOld.id})`)
 		.setTimestamp()
 		.setFooter(voiceOld.user.tag, voiceOld.user.avatarURL)
 
