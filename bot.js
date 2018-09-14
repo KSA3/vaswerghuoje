@@ -710,80 +710,6 @@ client.on('guildMemberAdd', member => {
        .setDescription(`📥 <@${member.user.id}> **دخل السيرفر**\n\n`)
        .setTimestamp();
      channel.send({embed:embed});
-});
- client.on('voiceStateUpdate', (oldM, newM) => {
-  let m1 = oldM.serverMute;
-  let m2 = newM.serverMute;
-   let d1 = oldM.serverDeaf;
-  let d2 = newM.serverDeaf;
-   let ch = oldM.guild.channels.find('name', 'log')
-  if(!ch) return;
-     oldM.guild.fetchAuditLogs()
-    .then(logs => {
-       let user = logs.entries.first().executor
-     if(m1 === false && m2 === true) {
-       let embed = new Discord.RichEmbed()
-       .setAuthor(`${newM.user.tag}`, newM.user.avatarURL)
-       .setDescription(`${newM} has muted in server`)
-       .setFooter(`By : ${newM}`)
-        ch.send(embed)
-    }
-    if(m1 === true && m2 === false) {
-       let embed = new Discord.RichEmbed()
-       .setAuthor(`${newM.user.tag}`, newM.user.avatarURL)
-       .setDescription(`${newM} has unmuted in server`)
-       .setFooter(`By : ${user}`)
-       .setTimestamp()
-        ch.send(embed)
-    }
-    if(d1 === false && d2 === true) {
-       let embed = new Discord.RichEmbed()
-       .setAuthor(`${newM.user.tag}`, newM.user.avatarURL)
-       .setDescription(`${newM} has deafened in server`)
-       .setFooter(`By : ${user}`)
-       .setTimestamp()
-        ch.send(embed)
-    }
-    if(d1 === true && d2 === false) {
-       let embed = new Discord.RichEmbed()
-       .setAuthor(`${newM.user.tag}`, newM.user.avatarURL)
-       .setDescription(`${newM} has undeafened in server`)
-       .setFooter(`By : ${user}`)
-       .setTimestamp()
-        ch.send(embed)
-    }
-  })
-});
-  client.on("guildBanAdd", (guild, member) => {
-  client.setTimeout(() => {
-    guild.fetchAuditLogs({
-        limit: 1,
-        type: 22
-      })
-      .then(audit => {
-        let exec = audit.entries.map(a => a.executor.username);
-        try {
-          let log = guild.channels.find('name', 'log');
-          if (!log) return;
-          client.fetchUser(member.id).then(myUser => {
-          let embed = new Discord.RichEmbed()
-        .setAuthor("تم التبنيد")
-	    .setColor("BLACK")
-        .setThumbnail(myUser.avatarURL)
-        .addField('= العضو المبند:',`**${myUser.username}**`,true)
-        .addField('= تم تبنيده بواسطة:',`**${exec}**`,true)
-        .setFooter(myUser.username,myUser.avatarURL)
-            .setTimestamp();
-          log.send(embed).catch(e => {
-            console.log(e);
-          });
-          });
-        } catch (e) {
-          console.log(e);
-        }
-      });
-  }, 1000);
-});
 client.on('guildMemberAdd',async member => {
   const Canvas = require('canvas');
   const jimp = require('jimp');
@@ -1663,10 +1589,10 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
 // Leave Voice Channel
 	if(voiceOld.voiceChannelID !== voiceNew.voiceChannelID && !voiceNew.voiceChannel) {
 		let voiceLeave = new Discord.RichEmbed()
-		.setTitle('**[LEAVE VOICE ROOM]**')
+		.setTitle('**خرج من الروم الصوتي**')
 		.setColor('GREEN')
 		.setThumbnail(voiceOld.user.avatarURL)
-		.setDescription(`**\n**:arrow_upper_left: Successfully \`\`LEAVE\`\` From Voice Channel.\n\n**Channel:** \`\`${voiceOld.voiceChannel.name}\`\` (ID: ${voiceOld.voiceChannelID})\n**User:** ${voiceOld} (ID: ${voiceOld.id})`)
+		.setDescription(`**\n**:arrow_upper_left: Successfully \`\`خرج\`\` من الروم الصوتي.\n\n**روم:** \`\`${voiceOld.voiceChannel.name}\`\` (أيدي: ${voiceOld.voiceChannelID})\n**الأسم:** ${voiceOld} (أيدي: ${voiceOld.id})`)
 		.setTimestamp()
 		.setFooter(voiceOld.user.tag, voiceOld.user.avatarURL)
 
