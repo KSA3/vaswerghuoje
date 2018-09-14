@@ -880,10 +880,10 @@ client.on('messageDelete', message => {
 	if(!logChannel) return;
 
 	let messageDelete = new Discord.RichEmbed()
-	.setTitle('**مسح رسالة**')
+	.setTitle('**[MESSAGE DELETE]**')
 	.setColor('RED')
 	.setThumbnail(message.author.avatarURL)
-	.setDescription(`**\n**:wastebasket: \`\`مسح\`\` **الرسالة** في ${message.channel}\n\n**الروم:** \`\`${message.channel.name}\`\`\n**تم الأرسال بواسطة:** <@${message.author.id}> \n**الرسالة:**\n\`\`\`${message}\`\`\``)
+	.setDescription(`**\n**:wastebasket: Successfully \`\`DELETE\`\` **MESSAGE** In ${message.channel}\n\n**Channel:** \`\`${message.channel.name}\`\` (ID: ${message.channel.id})\n**Message ID:** ${message.id}\n**Sent By:** <@${message.author.id}> (ID: ${message.author.id})\n**Message:**\n\`\`\`${message}\`\`\``)
 	.setTimestamp()
 	.setFooter(message.guild.name, message.guild.iconURL)
 
@@ -1419,10 +1419,10 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
 // Server UnDeafen Voice
 		if(voiceOld.serverDeaf === true && voiceNew.serverDeaf === false) {
 			let serverUndeafv = new Discord.RichEmbed()
-			.setTitle('**[VOICE UNDEAFEN]**')
+			.setTitle('**VOICE UNDEAFEN**')
 			.setThumbnail('https://images-ext-2.discordapp.net/external/s_abcfAlNdxl3uYVXnA2evSKBTpU6Ou3oimkejx3fiQ/https/cdn.pg.sa/i7fC8qnbRF.png')
 			.setColor('GREEN')
-			.setDescription(`**User:** <@${voiceOld.user.id}> (ID: ${voiceOld.user.id})\n**By:** <@${userID}> (ID: ${userID})\n**Channel:** \`\`${voiceOld.voiceChannel.name}\`\` (ID: ${voiceOld.voiceChannel.id})`)
+			.setDescription(`**User:** <@${voiceOld.user.id}>\n**By:** <@${userID}>**Channel:** \`\`${voiceOld.voiceChannel.name}\`\`\`)
 			.setTimestamp()
 			.setFooter(userTag, userAvatar)
 
@@ -1432,10 +1432,10 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
 // Join Voice Channel
 	if(voiceOld.voiceChannelID !== voiceNew.voiceChannelID && !voiceOld.voiceChannel) {
 		let voiceJoin = new Discord.RichEmbed()
-		.setTitle('**دخل الروم الصوتي**')
+		.setTitle('**JOIN VOICE ROOM**')
 		.setColor('GREEN')
 		.setThumbnail(voiceOld.user.avatarURL)
-		.setDescription(`**\n**:arrow_lower_right: \`\`دخل\`\` الى الروم الصوتي.\n\n**الروم:** \`\`${voiceNew.voiceChannel.name}\`\`\n**الأسم:** ${voiceOld} (ID: ${voiceOld.id})`)
+		.setDescription(`**\n**:arrow_lower_right: Successfully \`\`JOIN\`\` To Voice Channel.\n\n**Channel:** \`\`${voiceNew.voiceChannel.name}\`\`\n**User:** ${voiceOld}`)
 		.setTimestamp()
 		.setFooter(voiceOld.user.tag, voiceOld.user.avatarURL)
 
@@ -1444,10 +1444,10 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
 // Leave Voice Channel
 	if(voiceOld.voiceChannelID !== voiceNew.voiceChannelID && !voiceNew.voiceChannel) {
 		let voiceLeave = new Discord.RichEmbed()
-		.setTitle('**خرج من الروم الصوتي**')
+		.setTitle('**LEAVE VOICE ROOM**')
 		.setColor('GREEN')
 		.setThumbnail(voiceOld.user.avatarURL)
-		.setDescription(`**\n**:arrow_upper_left: \`\`خرج\`\` من الروم الصوتي.\n\n**الروم:** \`\`${voiceOld.voiceChannel.name}\`\`\n**الأسم:** ${voiceOld}`)
+		.setDescription(`**\n**:arrow_upper_left: Successfully \`\`LEAVE\`\` From Voice Channel.\n\n**Channel:** \`\`${voiceOld.voiceChannel.name}\`\`\n**User:** ${voiceOld}`)
 		.setTimestamp()
 		.setFooter(voiceOld.user.tag, voiceOld.user.avatarURL)
 
@@ -1456,10 +1456,10 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
 // Changed Voice Channel
 	if(voiceOld.voiceChannelID !== voiceNew.voiceChannelID && voiceNew.voiceChannel && voiceOld.voiceChannel != null) {
 		let voiceLeave = new Discord.RichEmbed()
-		.setTitle('**تم انتقالة من الروم الصوتي**')
+		.setTitle('**MOVED VOICE ROOM**')
 		.setColor('GREEN')
 		.setThumbnail(voiceOld.user.avatarURL)
-		.setDescription(`**\n**:repeat: \`\`انتقالة\`\` الروم الصوتي.\n\n**من:** \`\`${voiceOld.voiceChannel.name}\`\`\n**الى:** \`\`${voiceNew.voiceChannel.name}\`\`\n**الأسم:** ${voiceOld}`)
+		.setDescription(`**\n**:repeat: Successfully \`\`MOVED\`\` The Voice Channel.\n\n**From:** \`\`${voiceOld.voiceChannel.name}\`\`\n**To:** \`\`${voiceNew.voiceChannel.name}\`\`\n**User:** ${voiceOld}`)
 		.setTimestamp()
 		.setFooter(voiceOld.user.tag, voiceOld.user.avatarURL)
 
