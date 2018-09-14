@@ -880,10 +880,10 @@ client.on('messageDelete', message => {
 	if(!logChannel) return;
 
 	let messageDelete = new Discord.RichEmbed()
-	.setTitle('**[MESSAGE DELETE]**')
+	.setTitle('**مسح رسالة**')
 	.setColor('RED')
 	.setThumbnail(message.author.avatarURL)
-	.setDescription(`**\n**:wastebasket: Successfully \`\`DELETE\`\` **MESSAGE** In ${message.channel}\n\n**Channel:** \`\`${message.channel.name}\`\` (ID: ${message.channel.id})\n**Message ID:** ${message.id}\n**Sent By:** <@${message.author.id}> (ID: ${message.author.id})\n**Message:**\n\`\`\`${message}\`\`\``)
+	.setDescription(`**\n**:wastebasket: \`\`مسح\`\` **الرسالة** في ${message.channel}\n\n**الروم:** \`\`${message.channel.name}\`\`\n**تم الأرسال بواسطة:** <@${message.author.id}> \n**الرسالة:**\n\`\`\`${message}\`\`\``)
 	.setTimestamp()
 	.setFooter(message.guild.name, message.guild.iconURL)
 
