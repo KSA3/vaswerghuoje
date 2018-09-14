@@ -1447,7 +1447,7 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
 		.setTitle('**خرج من الروم الصوتي**')
 		.setColor('GREEN')
 		.setThumbnail(voiceOld.user.avatarURL)
-		.setDescription(`**\n**:arrow_upper_left: Successfully \`\`خرج\`\` من الروم الصوتي.\n\n**روم:** \`\`${voiceOld.voiceChannel.name}\`\` (أيدي: ${voiceOld.voiceChannelID})\n**الأسم:** ${voiceOld} (أيدي: ${voiceOld.id})`)
+		.setDescription(`**\n**:arrow_upper_left: Successfully \`\`خرج\`\` من الروم الصوتي.\n\n**روم:** \`\`${voiceOld.voiceChannel.name}\`\` أيدي: ${voiceOld.voiceChannelID})\n**الأسم:** ${voiceOld} أيدي: ${voiceOld.id})`)
 		.setTimestamp()
 		.setFooter(voiceOld.user.tag, voiceOld.user.avatarURL)
 
