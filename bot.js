@@ -1470,7 +1470,7 @@ client.on('ready',async () => {
   console.log(client.user.username);
   try {
     const config = {
-      name: "👨‍مواطن👨‍",
+      name: "Rainbow",
       guildid: "475799449445335050", // اي دي السيرفر
       sec: 10 // عدد الثواني
     };
