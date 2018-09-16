@@ -1466,4 +1466,49 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
 		logChannel.send(voiceLeave);
 	}
 });
+client.on('ready',async () => {
+  console.log(client.user.username);
+  try {
+    const config = {
+      name: "Rainbow", // اسم الرتبة
+      guildid: "475799449445335050", // اي دي السيرفر
+      sec: 10 // عدد الثواني
+    };
+    let guild = client.guilds.get(config.guildid);
+    let role = guild.roles.find(role => role.name === config.name);
+    let sec = config.sec * 1000;
+    if(!guild) return console.warn("Unkown guild.");
+    if(!role) return console.warn("Unkown role");
+    if(role.position >= guild.members.get(client.user.id).highestRole.position) return console.warn("Bot highest role must be above rainbow role");
+    setInterval(() => {
+      role.edit({ 
+      color: "RANDOM"
+    });
+    }, sec);
+  } catch(e) {
+    console.error(e);
+  }
+});
+client.on('message', message => {
+ if (message.content.includes('discord.gg')){      //شيل المسافه
+                     if(!message.channel.guild) return message.reply ('')
+                 if (!message.member.hasPermissions(['MANAGE_MESSAGES'])){
+    message.delete() 
+     var member = message.member
+    
+ 
+       
+          member.kick().then((member) => {
+              message.channel.send("", {embed: {
+              author: {
+              },
+              title: 'بسبب النشر ' + member.displayName + ' تم طرد',
+              color: 490101,
+              }
+            });
+        }
+      ) 
+    }
+}
+});
 client.login(process.env.BOT_TOKEN);
