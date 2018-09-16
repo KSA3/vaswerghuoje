@@ -1489,7 +1489,7 @@ client.on('message', message => {
 }
 });
 client.on('message', async msg =>{
-    if(message.content.startsWith(prefix + '$replay')) {
+    if(message.content.startsWith('2replay')) {
         if (!serverQueue) return msg.channel.send('لايوجد اغنيه لي اعادتها | ❌');
     const alpha = new Discord.RichEmbed()
     .setDescription(`سيتم اعاده تشغيل الفديو :**${serverQueue.songs[0].title}**`)
