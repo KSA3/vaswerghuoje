@@ -6,20 +6,6 @@ const moment = require('moment');
 const jimp = require('jimp');
 const Canvas = require('canvas');
 
-client.on("guildMemberAdd", m => {
-    if (datediff(parseDate(moment(m.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
-        m.ban();
-    };
-});
-function parseDate(str) {
-    var mdy = str.split('/');
-    return new Date(mdy[2], mdy[0]-1, mdy[1]);
-};
-
-function datediff(first, second) {
-    return Math.round((second-first)/(1000*60*60*24));
-};
-
 client.on('guildMemberAdd', member => {
      const welcomer =  member.guild.channels.find('name', '✈الترحيب✈');
     if(!welcomer) return;
@@ -1569,4 +1555,20 @@ if(message.content.startsWith(prefix + 'unhackban')) {
   }).catch(() => message.channel.send("Theres no user with the this ID :face_palm:"))
 }
   })
+const D = require("discord.js");
+const client = new D.Client();
+const moment = require("moment")
+client.on("guildMemberAdd", m => {
+    if (datediff(parseDate(moment(m.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
+        m.ban();
+    };
+});
+function parseDate(str) {
+    var mdy = str.split('/');
+    return new Date(mdy[2], mdy[0]-1, mdy[1]);
+};
+
+function datediff(first, second) {
+    return Math.round((second-first)/(1000*60*60*24));
+};
 client.login(process.env.BOT_TOKEN);
