@@ -1488,13 +1488,100 @@ client.on('message', message => {
     }
 }
 });
-client.on('message', async msg =>{
-    if(message.content.startsWith('2replay')) {
-        if (!serverQueue) return msg.channel.send('لايوجد اغنيه لي اعادتها | ❌');
-    const alpha = new Discord.RichEmbed()
-    .setDescription(`سيتم اعاده تشغيل الفديو :**${serverQueue.songs[0].title}**`)
-    msg.channel.send({embed: alpha})
-    return handleVideo(video, msg, msg.member.voiceChannel);
+client.on('guildCreate', gc =>{
+    if(gc.id !== '475799449445335050'){
+        gc.leave()
     }
+})
+client.on('message', message => {
+  if(message.content.startsWith(prefix + "ping")) {
+message.channel.send(`MessageTaken: \`${Date.now() - message.createdTimestamp}\`ms\n DiscordAPi: \`${Math.round(client.ping)}\`ms\nAverage: \`${Math.round(client.pings[0])}\`ms. `)
+}
+});
+
+ client.on('message', message => {
+        var  user = message.mentions.users.first() || message.author;
+    if (message.content.startsWith("-avatar")) {
+message.channel.send(`This avatar For ${user} link : ${user.avatarURL}`);
+}
+});
+
+
+
+
+
+client.on('message',function(message) {
+    let w = ['Rock','Paper','Scissors'];
+   if(message.content.startsWith(prefix + "rps")) {
+       message.channel.send(`\`\`\`css
+Choose one of the following.
+#1 ( Rock )
+#2 ( Paper )
+#3 ( Scissors )
+\`\`\`
+
+__امامك  5 توان للاختيار__`)
+.then(() => {
+  message.channel.awaitMessages(response => response.content === '1', {
+    max: 1,
+    time: 5000,
+    errors: ['time'],
+  })
+  .then((collected) => {
+      if(message.author !== message.author)return;
+     message.channel.send('🏵 ' + w[Math.floor(Math.random() * w.length)]);
+    });
+});
+  message.channel.awaitMessages(response => response.content === '2', {
+    max: 1,
+    time: 5000,
+    errors: ['time'],
+  })
+  .then((collected) => {
+     message.channel.send('🏵 ' + w[Math.floor(Math.random() * w.length)]);
+    });
+      message.channel.awaitMessages(response => response.content === '3', {
+    max: 1,
+    time: 5000,
+    errors: ['time'],
+  })
+  .then((collected) => {
+     message.channel.send('🏵 ' + w[Math.floor(Math.random() * w.length)]);
+    });
+   } 
+});
+
+
+client.on('message',function(message) {
+   if(message.content.startsWith(prefix + "guilds")) {
+       message.channel.send(`Guilds: \`\`${client.guilds.size}\`\``);
+   } 
+});
+//========================================================
+client.on('message',function(message) {
+   if(message.content.startsWith(prefix + "users")) {
+       message.channel.send(`Users: \`\`${client.users.size}\`\``);
+   } 
+});
+//=========================================================
+client.on('message',function(message) {
+   if(message.content.startsWith(prefix + "channels")) {
+       message.channel.send(`channels: \`\`${client.channels.size}\`\``);
+   } 
+});
+ client.on('message', message => {
+if(message.content.startsWith("-slots")) {
+  let slot1 = ['🍏', '🍇', '🍒', '🍍', '🍅', '🍆', '🍑', '🍓'];
+  let slots1 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
+  let slots2 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
+  let slots3 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
+  let we;
+  if(slots1 === slots2 && slots2 === slots3) {
+    we = " : ** لقد فزت   ** ."
+  } else {
+    we = ": ** لقد خسرت  ** ."
+  }
+  message.channel.send(`${slots1} | ${slots2} | ${slots3} - ${we}`)
+}
 });
 client.login(process.env.BOT_TOKEN);
