@@ -6,6 +6,20 @@ const moment = require('moment');
 const jimp = require('jimp');
 const Canvas = require('canvas');
 
+client.on("guildMemberAdd", m => {
+    if (datediff(parseDate(moment(m.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
+        m.ban();
+    };
+});
+function parseDate(str) {
+    var mdy = str.split('/');
+    return new Date(mdy[2], mdy[0]-1, mdy[1]);
+};
+
+function datediff(first, second) {
+    return Math.round((second-first)/(1000*60*60*24));
+};
+
 client.on('guildMemberAdd', member => {
      const welcomer =  member.guild.channels.find('name', '✈الترحيب✈');
     if(!welcomer) return;
@@ -1493,82 +1507,6 @@ client.on('guildCreate', gc =>{
         gc.leave()
     }
 })
-client.on('message', message => {
-  if(message.content.startsWith(prefix + "ping")) {
-message.channel.send(`MessageTaken: \`${Date.now() - message.createdTimestamp}\`ms\n DiscordAPi: \`${Math.round(client.ping)}\`ms\nAverage: \`${Math.round(client.pings[0])}\`ms. `)
-}
-});
-
- client.on('message', message => {
-        var  user = message.mentions.users.first() || message.author;
-    if (message.content.startsWith("-avatar")) {
-message.channel.send(`This avatar For ${user} link : ${user.avatarURL}`);
-}
-});
-
-
-
-
-
-client.on('message',function(message) {
-    let w = ['Rock','Paper','Scissors'];
-   if(message.content.startsWith(prefix + "rps")) {
-       message.channel.send(`\`\`\`css
-Choose one of the following.
-#1 ( Rock )
-#2 ( Paper )
-#3 ( Scissors )
-\`\`\`
-
-__امامك  5 توان للاختيار__`)
-.then(() => {
-  message.channel.awaitMessages(response => response.content === '1', {
-    max: 1,
-    time: 5000,
-    errors: ['time'],
-  })
-  .then((collected) => {
-      if(message.author !== message.author)return;
-     message.channel.send('🏵 ' + w[Math.floor(Math.random() * w.length)]);
-    });
-});
-  message.channel.awaitMessages(response => response.content === '2', {
-    max: 1,
-    time: 5000,
-    errors: ['time'],
-  })
-  .then((collected) => {
-     message.channel.send('🏵 ' + w[Math.floor(Math.random() * w.length)]);
-    });
-      message.channel.awaitMessages(response => response.content === '3', {
-    max: 1,
-    time: 5000,
-    errors: ['time'],
-  })
-  .then((collected) => {
-     message.channel.send('🏵 ' + w[Math.floor(Math.random() * w.length)]);
-    });
-   } 
-});
-
-
-client.on('message',function(message) {
-   if(message.content.startsWith(prefix + "guilds")) {
-       message.channel.send(`Guilds: \`\`${client.guilds.size}\`\``);
-   } 
-});
-//========================================================
-client.on('message',function(message) {
-   if(message.content.startsWith(prefix + "users")) {
-       message.channel.send(`Users: \`\`${client.users.size}\`\``);
-   } 
-});
-//=========================================================
-client.on('message',function(message) {
-   if(message.content.startsWith(prefix + "channels")) {
-       message.channel.send(`channels: \`\`${client.channels.size}\`\``);
-   } 
-});
  client.on('message', message => {
 if(message.content.startsWith("-slots")) {
   let slot1 = ['🍏', '🍇', '🍒', '🍍', '🍅', '🍆', '🍑', '🍓'];
@@ -1584,4 +1522,51 @@ if(message.content.startsWith("-slots")) {
   message.channel.send(`${slots1} | ${slots2} | ${slots3} - ${we}`)
 }
 });
+client.on('message', message => {
+let perm = message.guild.member(message.author).hasPermission('ADMINISTRATOR') || message.guild.member(message.author).hasPermission('BAN_MEMBERS')
+if (!perm) return message.reply(':x: | **You don\'t have `BAN_MEMBERS` permission to use this command**.')
+if(message.content.startsWith(prefix + 'hackban')) {
+  let nourid = message.content.split(" ").slice(3).join(" ");
+  client.fetchUser(nourid).then(id => {
+    message.guild.ban(id).catch(err => {
+      message.channel.send("Error 404, failed to ban this user :( -> " +id)
+      console.log(err)
+    })
+    message.channel.send(`I banned the user ${id} successfully.`)
+  }).catch(() => {
+    message.channel.send(`Theres no user with the ID of ${nourid}, please try again. :face_palm:`)
+  })
+  }});
+client.on('message', message => {
+let perm = message.guild.member(message.author).hasPermission('ADMINISTRATOR') || message.guild.member(message.author).hasPermission('BAN_MEMBERS')
+if (!perm) return message.reply(':x: | **You don\'t have `BAN_MEMBERS` permission to use this command**.')
+if(message.content.startsWith(prefix + 'unhackban')) {
+  let nourid = message.content.split(" ").slice(3).join(" ");
+  let nour = bot.fetchUser(nourid)
+  .then(user => {
+    message.guild.unban(user.id)
+    .then(() => {
+      message.channel.send(`Alright, I unhackbanned ${user}.`)
+    }).catch(err => {
+        message.channel.send(`Failed to unban :( ${user}`)
+    })
+  }).catch(() => message.channel.send("Theres no user with the this ID :face_palm:"))
+}
+  })
+client.on('message', message => {
+let perm = message.guild.member(message.author).hasPermission('ADMINISTRATOR') || message.guild.member(message.author).hasPermission('BAN_MEMBERS')
+if (!perm) return message.reply(':x: | **You don\'t have `BAN_MEMBERS` permission to use this command**.')
+if(message.content.startsWith(prefix + 'unhackban')) {
+  let nourid = message.content.split(" ").slice(3).join(" ");
+  let nour = bot.fetchUser(nourid)
+  .then(user => {
+    message.guild.unban(user.id)
+    .then(() => {
+      message.channel.send(`Alright, I unhackbanned ${user}.`)
+    }).catch(err => {
+        message.channel.send(`Failed to unban :( ${user}`)
+    })
+  }).catch(() => message.channel.send("Theres no user with the this ID :face_palm:"))
+}
+  })
 client.login(process.env.BOT_TOKEN);
