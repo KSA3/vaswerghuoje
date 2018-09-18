@@ -1508,10 +1508,4 @@ if(message.content.startsWith("-slots")) {
   message.channel.send(`${slots1} | ${slots2} | ${slots3} - ${we}`)
 }
 });
-client.on("ready", () => {
-let channel =     client.channels.get("476057214025596928")
-setInterval(function() {
-channel.send(`**!اذكار**`);
-}, 1000)
-})
 client.login(process.env.BOT_TOKEN);
