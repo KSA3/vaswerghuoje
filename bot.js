@@ -1508,83 +1508,68 @@ if(message.content.startsWith("-slots")) {
   message.channel.send(`${slots1} | ${slots2} | ${slots3} - ${we}`)
 }
 });
-const { shuffle, list, verify } = require('./Games/xo.js');
+client.on('message' , message => {
+  var prefix = "-";
+  if(message.author.bot) return;
 
-const TictacSet = new Set();
+  if(message.content.startsWith(prefix + "xo")) {
+ let array_of_mentions = message.mentions.users.array();
+  let symbols = [':o:', ':heavy_multiplication_x:'] 
+  var grid_message;
 
-client.on('message', async msg => {
-    var p = "-"
-  if(msg.content.startsWith(p + "xo")) {
-   let args = msg.content.split(' ').slice(1).join(' ');
-                        let user;
-        if (msg.mentions.users.size) { user = msg.mentions.users.first(); }
-        else if (args[0]) { user = await msg.guild.fetchMember(args[0]);
-        if (user) { user = user.user; } }
-        if (!user) return msg.reply('You must mention someone or give their id'); 
-                if (user.bot) return msg.reply('._.البوتات ماتلعب مثل الناس');
-                if (user.id === msg.author.id) return msg.reply('مايصلح تلعب مع نفسك يا نفسية ._.');
-                TictacSet.add(msg.channel.id);
-                try {
-                        await msg.channel.send(`${user}, تقبل التحدي؟ y or n`);
-                        const verification = await verify(msg.channel, user);
-                        if (!verification) {
-                                TictacSet.delete(msg.channel.id);
-                                return msg.channel.send('ما يبي يلعب');
-                        }
-                        const sides = ['0⃣', '1⃣', '2⃣', '3⃣', '4⃣', '5⃣', '6⃣', '7⃣', '8⃣'];
-      const nomor = ['0', '1', '2', '3', '4', '5', '6', '7', '8'];
-                        const taken = [];
-                        let userTurn = true;
-                        let winner = null;
-                        while (!winner && taken.length < 9) {
-                                const pUser = userTurn ? msg.author : user;
-                                const sign = userTurn ? '❎' : '🅾';
-                                await msg.channel.send('\n' + `
-                                        ${pUser}, دورك أكتب رقم المكان
-                                        =============
-                                        ${sides[0]}${sides[1]}${sides[2]}
-                                        ${sides[3]}${sides[4]}${sides[5]}
-                                        ${sides[6]}${sides[7]}${sides[8]}
-                                        =============
-                                `);
-                                const filter = res => {
-                                        const choice = res.content;
-                                        return res.author.id === pUser.id && nomor.includes(choice) && !taken.includes(choice);
-                                };
-                                const turn = await msg.channel.awaitMessages(filter, {
-                                        max: 1,
-                                        time: 30000
-                                });
-                               
-                                if (!turn.size) {
-                                        await msg.channel.send('أنتهى الوقت المرة الجاية العب بشكل أسرع');
-                                        userTurn = !userTurn;
-                                        continue;
-                                }
-                                const choice = turn.first().content;
-                                sides[Number.parseInt(choice, 10)] = sign;
-                                taken.push(choice);
-                                if (
-                                        (sides[0] === sides[1] && sides[0] === sides[2])
-                                        || (sides[0] === sides[3] && sides[0] === sides[6])
-                                        || (sides[3] === sides[4] && sides[3] === sides[5])
-                                        || (sides[1] === sides[4] && sides[1] === sides[7])
-                                        || (sides[6] === sides[7] && sides[6] === sides[8])
-                                        || (sides[2] === sides[5] && sides[2] === sides[8])
-                                        || (sides[0] === sides[4] && sides[0] === sides[8])
-                                        || (sides[2] === sides[4] && sides[2] === sides[6])
-                                ) winner = userTurn ? msg.author : user;
-                                userTurn = !userTurn;
-                        
-                                
-                        }
-                        TictacSet.delete(msg.channel.id);
-                
-                        return msg.channel.send(winner ? `مبرووك, ${winner}!` : 'GG مره اخرى ان شاء الله');
-                } catch (err) {
-                        TictacSet.delete(msg.channel.id);
-                        throw err;
-                }
-        }
-});
+  if (array_of_mentions.length == 1 || array_of_mentions.length == 2) {
+    let random1 = Math.floor(Math.random() * (1 - 0 + 1)) + 0;
+    let random2 = Math.abs(random1 - 1); 
+    if (array_of_mentions.length == 1) {
+      random1 = 0;
+      random2 = 0;
+    }
+    let player1_id = array_of_mentions[random1].id;
+    let player2_id = array_of_mentions[random2].id;
+    var turn_id = player1_id;
+    var symbol = symbols[0];
+    let initial_message = `Game match between <@${player1_id}> and <@${player2_id}>!`;
+    if (player1_id == player2_id) {
+      initial_message += '\n_(What a loser, playing this game with yourself :joy:)_'
+    }
+    message.channel.send(`Tic-tac-toe! ${initial_message}`)
+    .then(console.log("Successful tictactoe introduction"))
+    .catch(console.error);
+    message.channel.send(':one::two::three:' + '\n' +
+                         ':four::five::six:' + '\n' +
+                         ':seven::eight::nine:')
+    .then((new_message) => {
+      grid_message = new_message;
+    })
+    .then(console.log("Successful tictactoe game initialization"))
+    .catch(console.error);
+    message.channel.send('Loading... Please wait for the :ok: reaction.')
+    .then(async (new_message) => {
+      await new_message.react('1⃣');
+      await new_message.react('2⃣');
+      await new_message.react('3⃣');
+      await new_message.react('4⃣');
+      await new_message.react('5⃣');
+      await new_message.react('6⃣');
+      await new_message.react('7⃣');
+      await new_message.react('8⃣');
+      await new_message.react('9⃣');
+      await new_message.react('🆗');
+      await new_message.edit(`It\'s <@${turn_id}>\'s turn! Your symbol is ${symbol}`)
+      .then((new_new_message) => {
+        require('./alpha.js')(client, message, new_new_message, player1_id, player2_id, turn_id, symbol, symbols, grid_message);
+      })
+      .then(console.log("Successful tictactoe listener initialization"))
+      .catch(console.error);
+    })
+    .then(console.log("Successful tictactoe react initialization"))
+    .catch(console.error);
+  }
+  else {
+    message.reply(`_Beldum Beldum_ :anger: \`(Use it like this: ${prefix}tictactoe @player1 @player2)\``)
+    .then(console.log("Successful error reply"))
+    .catch(console.error);
+  }
+}
+ });
 client.login(process.env.BOT_TOKEN);
