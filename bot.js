@@ -1576,7 +1576,7 @@ client.on('message' , message => {
                   if (!points[message.author.id]) points[message.author.id] = {
                     points: 0,
                     };
-                  if (message.content.startsWith(prefix + 'Fort')) {
+                  if (message.content.startsWith('-Fortnite')) {
                     if(!message.channel.guild) return message.reply('**__لا تلعب عندي العب بالسيرفرات__**').then(m => m.delete(3000));
                   
                   const type = require('./Games/Fortnite.json');
