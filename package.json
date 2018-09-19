@@ -28,7 +28,7 @@
     "ms": "^2.1.1",
     "goo.gl": "^0.1.4",
     "figlet": "^1.2.0",
-   "convas": "^2.0.0",
+   "canvas": "^1.6.12",
     "common-tags": "^1.8.0",
     "google-it": "1.1.1",
     "node-opus": "^0.2.7",
