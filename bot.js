@@ -1513,7 +1513,7 @@ const { shuffle, list, verify } = require('./Games/xo.js');
 const TictacSet = new Set();
 
 client.on('message', async msg => {
-    var p = "M"
+    var p = "-"
   if(msg.content.startsWith(p + "xo")) {
    let args = msg.content.split(' ').slice(1).join(' ');
                         let user;
