@@ -1509,7 +1509,7 @@ if(message.content.startsWith("-slots")) {
 }
 });
 client.on('message' , message => {
-  var prefix = "+";
+  var prefix = "-";
   if(message.author.bot) return;
   if(message.content.startsWith(prefix + "send")) {
     let args = message.content.split(" ").slice(1);
@@ -1543,5 +1543,61 @@ suggestchannel.send("@everyone  `||` @here ");
     message.reply(`Your message is sended.`).then(msg => msg.delete(1000));
     return;
 }
+});
+var moment = require("moment");
+client.on('message', message => {
+  var prefix = '-';
+  
+  if (message.content.startsWith(prefix + "id")) {
+      message.react("🆔") 
+  if(!message.channel.guild) return message.reply(`**__بس بالسيرفرات__**`);
+   message.guild.fetchInvites().then(invs => {
+      let member = client.guilds.get(message.guild.id).members.get(message.author.id);
+      let personalInvites = invs.filter(i => i.inviter.id === message.author.id);
+      let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+      var moment = require('moment');
+      var args = message.content.split(" ").slice(1);
+let user = message.mentions.users.first();
+var men = message.mentions.users.first();
+ var heg;
+ if(men) {
+     heg = men
+ } else {
+     heg = message.author
+ }
+var mentionned = message.mentions.members.first();
+  var h;
+ if(mentionned) {
+     h = mentionned
+ } else {
+     h = message.member
+ }
+moment.locale('ar-TN');
+      var id = new  Discord.RichEmbed()
+    .setColor("!0a0909")
+    .setAuthor(message.author.username, message.author.avatarURL) 
+.addField('**تاريخ دخولك الدسكورد**:', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true) 
+.addField('**تاريخ دخولك السيرفر**:', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)
+.addField("**اسمك**", `${message.author.username}`)
+.addField('**تاقك**', message.author.discriminator)
+.setFooter("Smile Life Bot")  
+    message.channel.sendEmbed(id);
+})
+}       
+});
+client.on('message', msg => {
+ if (msg.content.startsWith(prefix + 'msg')) {
+      let args = msg.content.split(' ').slice(1)
+      if (!args[0]) return msg.reply(`**منشن ._.**`)
+      if (!args[1]) return msg.reply(`**ترسل رسالة فاضية؟._.**`)
+      let norElden = msg.mentions.members.first()
+      if (!norElden) return msg.reply(`**حدد ياخي._.**`)
+      let norEldenEmbed = new Discord.RichEmbed()
+      .setTitle(`**رسالة جديدة من من؟**`)
+      .setDescription(args.join(" "))
+
+      client.users.get(`${norElden.id}`).send(norEldenEmbed)
+      msg.reply(`**تمت المهمة بنجاح**`)
+    }
 });
 client.login(process.env.BOT_TOKEN);
