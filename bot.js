@@ -1508,7 +1508,7 @@ if(message.content.startsWith("-slots")) {
   message.channel.send(`${slots1} | ${slots2} | ${slots3} - ${we}`)
 }
 });
-const { shuffle, list, verify } = require('./Games/xo.js');
+const { shuffle, list, verify } = require('./xo.js');
 
 const TictacSet = new Set();
 
