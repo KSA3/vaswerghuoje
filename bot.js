@@ -1508,22 +1508,16 @@ if(message.content.startsWith("-slots")) {
   message.channel.send(`${slots1} | ${slots2} | ${slots3} - ${we}`)
 }
 });
-client.on("message", message => {
-    if (message.author.bot || !message.guild) return;
-    const prefix ="="
- 
-    if(command === "leaderboard") {
-      const top10 = sql.prepare("SELECT * FROM scores WHERE guild = ? ORDER BY points DESC LIMIT 10;").all(message.guild.id);
-      const embed = new Discord.RichEmbed()
-        .setTitle("**TOP 10 TEXT** :speech_balloon:")
-        .setAuthor('📋 Guild Score Leaderboards', message.guild.iconURL)
-        .setColor(0x00AE86);
- 
-      for(const data of top10) {
-        embed.addField(client.users.get(data.user).tag, `XP: \`${data.points}\` | LVL: \`${data.level}\``);
-      }
-      return message.channel.send({embed});
-    }
-   
-  });
+client.on('message', async message=>{
+    if(message.author.bot) return;
+    var args = message.content.split(' '),mc=message.channel
+ , _point = require('./s.json')
+ if(message.content=="set"){
+ for(var i=0;i<101;i++) _point[i+1] = {name:i+1,points:100-i}
+ fs.writeFile('./s.json',JSON.stringify(_point,null, 5))
+}
+    if(message.content.toLowerCase().startsWith('top')){
+        var _Array = Object.values(_point)
+     message.channel.send(_Array.slice(1,11).map((data,num)=>`**\`${num+1}\`.** ${data.name+` (${data.points})`}`));
+    }});
 client.login(process.env.BOT_TOKEN);
