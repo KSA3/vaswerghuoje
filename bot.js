@@ -1572,33 +1572,4 @@ client.on('message' , message => {
   }
 }
  });
-                client.on('message', message => {
-                  if (!points[message.author.id]) points[message.author.id] = {
-                    points: 0,
-                    };
-                  if (message.content.startsWith('-Fortnite')) {
-                    if(!message.channel.guild) return message.reply('**__لا تلعب عندي العب بالسيرفرات__**').then(m => m.delete(3000));
-                  
-                  const type = require('./Games/Fortnite.json');
-                  const item = type[Math.floor(Math.random() * type.length)];
-                  const filter = response => {
-                      return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
-                  };
-                  message.channel.send('**الحق عندك 15 ثانية**').then(msg => {
-                  
-                        
-                  msg.channel.send(`${item.type}`).then(() => {
-                          message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
-                          .then((collected) => {
-                      message.channel.send(`${collected.first().author} ✅ **أصلي عليك**`);
-                              let won = collected.first().author;
-                              points[won.id].points++;
-                            })
-                            .catch(collected => {
-                              message.channel.send(`**:pensive:خلص الوقت للأسف:pensive:**`);
-                            })
-                      })
-                    })
-                  }
-                  });
 client.login(process.env.BOT_TOKEN);
